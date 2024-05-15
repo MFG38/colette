@@ -1,7 +1,6 @@
 import os
 
 todo = []
-#todoFile = open('colette_todo', 'r+')
 
 class TodoItem:
     def __init__(self, desc, task_type, deadline):
