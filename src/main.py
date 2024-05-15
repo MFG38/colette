@@ -8,6 +8,9 @@ while True:
         case "help":
             ch.print_help()
 
+        case "ver" | "version":
+            ch.print_version_info()
+
         case "list":
             ch.print_list()
 

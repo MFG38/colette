@@ -8,5 +8,5 @@ class TodoItem:
         self.task_type = task_type
         self.deadline = deadline
 
-    def __str__(self):
-        return f"{self.desc} | {self.task_type} | {self.deadline}"
+    #def __str__(self):
+    #    return f"{self.desc} | {self.task_type} | {self.deadline}"

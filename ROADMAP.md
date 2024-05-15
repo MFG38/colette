@@ -5,7 +5,9 @@
 - [x] Print todo list
 - [ ] Search for entries in list
 - [x] Add entries
-- [ ] Remove entries
+- [x] Remove entries by index
+- [ ] Remove entries by task description
+- [ ] Remove old entries (deadline has passed)
 - [ ] Edit entries
 - [ ] Save todo list (to cache or file?)
 

@@ -1,8 +1,10 @@
 import os
 import re
 import datetime
-#import argparse
+import argparse
+
 import todoHandler as th
+from version import *
 
 class CommandHandler:
     def __init__(self, cmd: str):
@@ -44,7 +46,7 @@ class CommandHandler:
             print("Description can't be an empty string!\nExiting prompt...")
             return
 
-        parsable_type = input("Enter a type for the task ([f]ixed, [d]aily, [w]eekly, [m]onthly): ")
+        parsable_type = str(task_type)
 
         if parsable_type == "fixed" or parsable_type == "f":
             task_type = 0
@@ -69,8 +71,6 @@ class CommandHandler:
     # remove_entry_by_index:
     #   Remove an entry from the list by its index.
     def remove_entry_by_index(index: int):
-        #i = int(input("Index of item to remove: "))
-
         if index not in range(0, len(th.todo)):
             print(f"Nothing found at index {index} - probably out of bounds.\nExiting prompt...")
             return
@@ -98,6 +98,8 @@ class CommandHandler:
     def edit_entry(index: int):
         pass
 
+    # print_help:
+    #   Self-explanatory.
     def print_help():
         print("""
         Colette is a todo list manager that runs in the command line.
@@ -109,8 +111,22 @@ class CommandHandler:
 
             rem[ove] - Removes an entry from the todo list by its index.
 
+            ver[sion] - Prints Colette's version information. Supports the
+            following command line arguments:
+                -n, --num: Prints only the version number.
+                -d, --date: Prints only the version date.
+
             exit - Quits Colette.
         """)
+
+    def print_version_info(argv=None):
+        parser = argparse.ArgumentParser()
+        argg = argparse.add_mutually_exclusive_group()
+        argg.add_argument('-n', '--num')
+        argg.add_argument('-d', '--date')
+        parser.parse_args()
+
+        print(full_version_info)
 
     # exit_colette:
     #   Self-explanatory.
