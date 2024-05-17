@@ -1,4 +1,13 @@
+'''
+    todoHandler.py
+
+    Handles stuff related to entries in the todo list in
+    Colette. The biggest thing here is the TodoItem class,
+    which stores the information needed by each entry.
+'''
+
 import os
+import datetime
 
 todo = []
 
@@ -7,6 +16,3 @@ class TodoItem:
         self.desc = desc
         self.task_type = task_type
         self.deadline = deadline
-
-    #def __str__(self):
-    #    return f"{self.desc} | {self.task_type} | {self.deadline}"

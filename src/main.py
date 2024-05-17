@@ -1,10 +1,19 @@
+'''
+    main.py
+
+    The main CLI loop.
+'''
+
 from commandHandler import CommandHandler as ch
 from todoHandler import *
 
 while True:
-    cmd = input("cmd> ")
+    cmd = input("cmd> ").split(" ")
+    cmd_main = cmd[0].lower()
+    if len(cmd) > 1:
+        cmd_args = cmd[1].lower()
 
-    match cmd:
+    match cmd_main:
         case "help":
             ch.print_help()
 

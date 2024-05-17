@@ -1,7 +1,13 @@
+'''
+    commandHandler.py
+
+    Defines all of the functions used by the commands in
+    Colette's CLI.
+'''
+
 import os
 import re
-import datetime
-import argparse
+#import argparse
 
 import todoHandler as th
 from version import *
@@ -15,11 +21,36 @@ class CommandHandler:
     #   the list sorted by alphabetical order, deadline etc. or filtered by
     #   task type or deadline.
     def print_list():
+        header_titles = ["INDEX", "TASK DESCRIPTION", "TYPE", "DUE DATE"]
+        justifiers = [6, 64, 8, 12]
+
         if len(th.todo) == 0:
             print("There's nothing in your todo list yet!\nStart by adding something with the ADD command.\n")
         else:
+            #print(f"{' '.join(str(h.ljust(int(i) for i in justifiers)) for h in header_titles)}")
+
             for entry in th.todo:
-                print(str(th.todo.index(entry)), entry.desc, entry.task_type, entry.deadline, sep=" ")
+                parsed_type = ""
+
+                match entry.task_type:
+                    case 0:
+                        parsed_type = "fixed"
+                    case 1:
+                        parsed_type = "daily"
+                    case 2:
+                        parsed_type = "weekly"
+                    case 3:
+                        parsed_type = "monthly"
+                    case _:
+                        parsed_type = "unknown"
+
+                print(
+                    str(th.todo.index(entry)).ljust(justifiers[0]),
+                    entry.desc.ljust(justifiers[1]),
+                    parsed_type.ljust(justifiers[2]),
+                    entry.deadline,
+                    sep=" "
+                )
 
     # search_list:
     #   Search the todo list based on a given search key and return all
@@ -119,13 +150,22 @@ class CommandHandler:
             exit - Quits Colette.
         """)
 
-    def print_version_info(argv=None):
-        parser = argparse.ArgumentParser()
-        argg = argparse.add_mutually_exclusive_group()
+    # print_version_info:
+    #   Self-explanatory. Optional command line arguments for only printing
+    #   version number or date, print full version info if no arguments are
+    #   passed.
+    def print_version_info():
+        '''parser = argparse.ArgumentParser()
+        argg = parser.add_mutually_exclusive_group()
         argg.add_argument('-n', '--num')
         argg.add_argument('-d', '--date')
-        parser.parse_args()
+        args = parser.parse_args()
 
+        if args.num:
+            print(version_num)
+        elif args.date:
+            print(version_date)
+        else:'''
         print(full_version_info)
 
     # exit_colette:
