@@ -23,11 +23,13 @@ class CommandHandler:
     def print_list():
         header_titles = ["INDEX", "TASK DESCRIPTION", "TYPE", "DUE DATE"]
         justifiers = [6, 64, 8, 12]
+        header_length = sum(justifiers)
 
         if len(th.todo) == 0:
             print("There's nothing in your todo list yet!\nStart by adding something with the ADD command.\n")
         else:
-            #print(f"{' '.join(str(h.ljust(int(i) for i in justifiers)) for h in header_titles)}")
+            print(f"{' '.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}")
+            print("-" * header_length)
 
             for entry in th.todo:
                 parsed_type = ""
@@ -51,6 +53,8 @@ class CommandHandler:
                     entry.deadline,
                     sep=" "
                 )
+
+            print()
 
     # search_list:
     #   Search the todo list based on a given search key and return all
