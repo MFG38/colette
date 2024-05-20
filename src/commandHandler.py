@@ -22,7 +22,7 @@ class CommandHandler:
     #   task type or deadline.
     def print_list():
         header_titles = ["INDEX", "TASK DESCRIPTION", "TYPE", "DUE DATE"]
-        justifiers = [6, 64, 8, 12]
+        justifiers = [7, 63, 7, 15]
         header_length = sum(justifiers)
 
         if len(th.todo) == 0:
@@ -181,6 +181,8 @@ class CommandHandler:
 
             rem[ove] - Removes an entry from the todo list by its index.
 
+            edit - Modifies an entry in the todo list.
+
             ver[sion] - Prints Colette's version information. Supports the
             following command line arguments:
                 -n, --num: Prints only the version number.
@@ -210,4 +212,5 @@ class CommandHandler:
     # exit_colette:
     #   Self-explanatory.
     def exit_colette():
+        th.save_todo_list()
         exit()

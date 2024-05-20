@@ -7,6 +7,9 @@
 from commandHandler import CommandHandler as ch
 from todoHandler import *
 
+get_todo_list()
+read_todo_list()
+
 while True:
     cmd = input("cmd> ").split(" ")
     cmd_main = cmd[0].lower()
@@ -41,4 +44,4 @@ while True:
             ch.exit_colette()
 
         case _:
-            print(f"{cmd} is not a recognized command.")
+            print(f"{cmd_main} is not a recognized command.")

@@ -9,7 +9,7 @@
 - [ ] Remove entries by task description
 - [ ] Remove old entries (deadline has passed)
 - [x] Edit entries
-- [ ] Save todo list (to cache or file?)
+- [x] Save and read todo list to/from file
 
 ## Extras
 - [ ] Command history and scrollback
@@ -17,3 +17,4 @@
 - [ ] Command line options for commands (see code comments for ideas)
 - [ ] Mark tasks as urgent
 - [ ] Deadline/urgency reminders
+- [ ] Localization support
