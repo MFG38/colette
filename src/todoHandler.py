@@ -8,7 +8,6 @@
 
 import os
 import datetime
-#import json
 from pathlib import Path
 
 tdf_name = 'todo.clt'
