@@ -8,7 +8,7 @@
 - [x] Remove entries by index
 - [ ] Remove entries by task description
 - [ ] Remove old entries (deadline has passed)
-- [ ] Edit entries
+- [x] Edit entries
 - [ ] Save todo list (to cache or file?)
 
 ## Extras

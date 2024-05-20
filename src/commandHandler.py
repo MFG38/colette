@@ -80,6 +80,9 @@ class CommandHandler:
         if desc == "":
             print("Description can't be an empty string!\nExiting prompt...")
             return
+        elif len(desc) > 60:
+            print("Length of description exceeds character limit!\nExiting prompt...")
+            return
 
         parsable_type = str(task_type)
 
@@ -131,7 +134,39 @@ class CommandHandler:
     #   optional arguments to edit only part of the entry without an interactive
     #   prompt.
     def edit_entry(index: int):
-        pass
+        if index not in range(0, len(th.todo)):
+            print(f"Nothing found at index {index} - probably out of bounds.\nExiting prompt...")
+            return
+
+        new_desc = input("Enter new description or leave blank to skip. ")
+
+        if new_desc == "":
+            pass
+        else:
+            th.todo[index].desc = new_desc
+
+        new_type = input("Enter new type or leave blank to skip. ")
+
+        if new_type == "":
+            pass
+        elif new_type == "fixed" or new_type == "f":
+            th.todo[index].task_type = 0
+        elif new_type == "daily" or new_type == "d":
+            th.todo[index].task_type = 1
+        elif new_type == "weekly" or new_type == "w":
+            th.todo[index].task_type = 2
+        elif new_type == "monthly" or new_type == "m":
+            th.todo[index].task_type = 3
+        else:
+            print(f"{new_type} is not a recognized type!\nExiting prompt...")
+            return
+
+        new_deadline = input("Enter new deadline or leave blank to skip. ")
+
+        if new_deadline == "":
+            pass
+        else:
+            th.todo[index].deadline = new_deadline
 
     # print_help:
     #   Self-explanatory.

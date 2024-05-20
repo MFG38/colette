@@ -34,6 +34,9 @@ while True:
         case "rem" | "remove":
             ch.remove_entry_by_index(int(input("Index of entry to remove: ")))
 
+        case "edit":
+            ch.edit_entry(int(input("Index of entry to edit: ")))
+
         case "exit":
             ch.exit_colette()
 
