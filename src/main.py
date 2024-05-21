@@ -26,6 +26,9 @@ while True:
         case "list":
             ch.print_list()
 
+        case "debuglist":
+            print(todo)
+
         case "add":
             t = TodoItem(
                 input("Description of the task: "),
@@ -36,17 +39,17 @@ while True:
 
         case "rem" | "remove":
             i = input("Index of entry to remove: ")
-            if str(i) == "":
+            '''if str(i) == "":
                 pass
-            elif int(i) >= 0:
-                ch.remove_entry_by_index(i)
+            elif int(i) >= 0:'''
+            ch.remove_entry_by_index(i)
 
         case "edit":
             i = input("Index of entry to edit: ")
-            if str(i) == "":
+            '''if str(i) == "":
                 pass
-            elif int(i) >= 0:
-                ch.edit_entry(i)
+            elif int(i) >= 0:'''
+            ch.edit_entry(i)
 
         case "exit":
             ch.exit_colette()
