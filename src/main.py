@@ -35,10 +35,18 @@ while True:
             ch.add_entry(t.desc, t.task_type, t.deadline)
 
         case "rem" | "remove":
-            ch.remove_entry_by_index(int(input("Index of entry to remove: ")))
+            i = input("Index of entry to remove: ")
+            if str(i) == "":
+                pass
+            elif int(i) >= 0:
+                ch.remove_entry_by_index(i)
 
         case "edit":
-            ch.edit_entry(int(input("Index of entry to edit: ")))
+            i = input("Index of entry to edit: ")
+            if str(i) == "":
+                pass
+            elif int(i) >= 0:
+                ch.edit_entry(i)
 
         case "exit":
             ch.exit_colette()

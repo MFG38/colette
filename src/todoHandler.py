@@ -3,7 +3,9 @@
 
     Handles stuff related to entries in the todo list in
     Colette. The biggest thing here is the TodoItem class,
-    which stores the information needed by each entry.
+    which stores the information needed by each entry. Also
+    handles writing the todo list to a file and reading it
+    from the generated file.
 '''
 
 import os

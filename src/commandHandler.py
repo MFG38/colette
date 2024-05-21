@@ -183,12 +183,9 @@ class CommandHandler:
 
             edit - Modifies an entry in the todo list.
 
-            ver[sion] - Prints Colette's version information. Supports the
-            following command line arguments:
-                -n, --num: Prints only the version number.
-                -d, --date: Prints only the version date.
+            ver[sion] - Prints Colette's version information.
 
-            exit - Quits Colette.
+            exit - Saves the todo list and quits Colette.
         """)
 
     # print_version_info:
