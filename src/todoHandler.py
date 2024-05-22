@@ -45,3 +45,8 @@ def save_todo_list():
             tdf.write("{},{},{}\n".format(entry.desc, entry.task_type, entry.deadline))
 
     #print(f"{tdf_name} saved in {wd}")
+
+if __name__ == "__main__":
+    get_todo_list()
+    read_todo_list()
+    print(todo)
