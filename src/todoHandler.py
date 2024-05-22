@@ -9,8 +9,6 @@
 '''
 
 import os
-import datetime
-from pathlib import Path
 
 tdf_name = 'todo.clt'
 todo = []
@@ -49,4 +47,11 @@ def save_todo_list():
 if __name__ == "__main__":
     get_todo_list()
     read_todo_list()
-    print(todo)
+    for entry in todo:
+        print(
+            str(todo.index(entry)),
+            entry.desc,
+            entry.task_type,
+            entry.deadline,
+            sep=", "
+        )

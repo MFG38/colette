@@ -15,7 +15,7 @@
 ## Extras
 - [ ] Command history and scrollback
 - [ ] Program configuration (likely through TOML)
-- [ ] Command line options for commands (see code comments for ideas)
+- [ ] Command line options for commands
 - [ ] Mark tasks as urgent
 - [ ] Deadline/urgency reminders
 - [ ] Localization support

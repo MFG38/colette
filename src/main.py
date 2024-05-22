@@ -14,7 +14,7 @@ while True:
     cmd = input("cmd> ").split(" ")
     cmd_main = cmd[0].lower()
     if len(cmd) > 1:
-        cmd_args = cmd[1].lower()
+        cmd_args = cmd[1:].lower()
 
     match cmd_main:
         case "help":
@@ -27,6 +27,7 @@ while True:
             ch.print_list()
 
         case "debuglist":
+            print(len(todo))
             print(todo)
 
         case "add":
@@ -38,18 +39,18 @@ while True:
             ch.add_entry(t.desc, t.task_type, t.deadline)
 
         case "rem" | "remove":
-            i = input("Index of entry to remove: ")
-            if str(i) == "":
+            i = int(input("Index of entry to remove: "))
+            '''if str(i) == "":
                 pass
-            elif int(i) >= 0:
-                ch.remove_entry_by_index(i)
+            elif int(i) >= 0:'''
+            ch.remove_entry_by_index(i)
 
         case "edit":
-            i = input("Index of entry to edit: ")
-            if str(i) == "":
+            i = int(input("Index of entry to edit: "))
+            '''if str(i) == "":
                 pass
-            elif int(i) >= 0:
-                ch.edit_entry(i)
+            elif int(i) >= 0:'''
+            ch.edit_entry(i)
 
         case "exit":
             ch.exit_colette()

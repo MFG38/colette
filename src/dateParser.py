@@ -71,7 +71,7 @@ def parse_deadline_from_string(deadline: str):
         case "tomorrow":
             y = dt.datetime.now().year
             m = dt.datetime.now().month
-            d = dt.datetime.now().day + 1
+            d = (dt.datetime.now().day + 1)
         case _:
             print(f"Failed to parse date from string {deadline}: invalid format.")
 
