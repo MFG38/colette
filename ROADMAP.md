@@ -3,7 +3,7 @@
 ## Basic functionality
 - [x] Main CLI and loop
 - [x] Print todo list
-- [ ] Search for entries in list
+- [x] Search for entries in list
 - [x] Add entries
 - [x] Remove entries by index
 - [ ] Remove entries by task description

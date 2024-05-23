@@ -32,24 +32,10 @@ class CommandHandler:
             print("-" * header_length)
 
             for entry in th.todo:
-                parsed_type = ""
-
-                match entry.task_type:
-                    case 0:
-                        parsed_type = "fixed"
-                    case 1:
-                        parsed_type = "daily"
-                    case 2:
-                        parsed_type = "weekly"
-                    case 3:
-                        parsed_type = "monthly"
-                    case _:
-                        parsed_type = "unknown"
-
                 print(
                     str(th.todo.index(entry)).ljust(justifiers[0]),
                     entry.desc.ljust(justifiers[1]),
-                    parsed_type.ljust(justifiers[2]),
+                    th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                     entry.deadline,
                     sep=" "
                 )
@@ -59,10 +45,31 @@ class CommandHandler:
     def search_list(search_key: str):
         '''
         Searches the todo list for entries with the given description
-        and prints all found entries. Multiple descriptions can be
-        given by separating them with commas.
+        and prints all found entries.
         '''
-        pass
+        justifiers = [7, 63, 7, 15]
+        found_entries = []
+
+        if search_key != "":
+            for entry in th.todo:
+                if re.search(search_key, entry.desc):
+                    found_entries.append(entry)
+
+            if len(found_entries) > 0:
+                for entry in found_entries:
+                    print(
+                        str(th.todo.index(entry)).ljust(justifiers[0]),
+                        entry.desc.ljust(justifiers[1]),
+                        th.parse_task_type(entry.task_type).ljust(justifiers[2]),
+                        entry.deadline,
+                        sep=" "
+                    )
+                return True
+            else:
+                print(f"No results returned with the search term(s) '{search_key}'.")
+                return False
+
+        print()
 
     def sort_list(sort_key: str):
         pass

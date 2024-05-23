@@ -44,6 +44,23 @@ def save_todo_list():
 
     #print(f"{tdf_name} saved in {wd}")
 
+def parse_task_type(task_type: int):
+    parsed_type = ""
+
+    match task_type:
+        case 0:
+            parsed_type = "fixed"
+        case 1:
+            parsed_type = "daily"
+        case 2:
+            parsed_type = "weekly"
+        case 3:
+            parsed_type = "monthly"
+        case _:
+            parsed_type = f"{TextColor.ERROR}unknown{TextColor.RESET}"
+
+    return parsed_type
+
 if __name__ == "__main__":
     get_todo_list()
     read_todo_list()
@@ -51,7 +68,7 @@ if __name__ == "__main__":
         print(
             str(todo.index(entry)),
             entry.desc,
-            entry.task_type,
+            parse_task_type(entry.task_type),
             entry.deadline,
             sep=", "
         )

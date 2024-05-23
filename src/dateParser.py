@@ -11,6 +11,8 @@ import datetime as dt
 import calendar
 import re
 
+from textColors import *
+
 class RegexDates:
     regex_full_date = re.compile(r"\d{4}(.\d{2}){2}")
     regex_month_day = re.compile(r"\d{2}.\d{2}")
@@ -82,7 +84,7 @@ def parse_deadline_from_string(deadline: str):
             m = get_current_month()
             d = (get_current_day() + 1)
         case _:
-            print(f"Failed to parse date from string {deadline}: invalid format.")
+            print(f"{TextColor.ERROR}Failed to parse date from string {deadline}: invalid format.{TextColor.RESET}")
 
     return dt.date(y, m, d)
 
@@ -93,5 +95,5 @@ if __name__ == "__main__":
     print(f"{dt.date.today()}, {get_current_weekday()}")
 
     while True:
-        p = parse_weekday_from_string(input("test> "))
+        p = parse_deadline_from_string(input("test> "))
         print(p)

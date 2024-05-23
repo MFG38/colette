@@ -25,6 +25,8 @@ class TextColor:
 
     RESET   = "\033[0m"
 
+    # These I'll probably make configurable at some point.
+    DEFAULT = WHITE
     ERROR   = RED
     WARNING = YELLOW
     DEBUG   = CYAN

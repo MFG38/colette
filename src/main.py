@@ -27,6 +27,9 @@ while True:
         case "list":
             ch.print_list()
 
+        case "search":
+            ch.search_list(input(f"{TextColor.PROMPT}Enter search term(s): {TextColor.RESET}"))
+
         case "add":
             t = TodoItem(
                 input(f"{TextColor.PROMPT}Description of the task: {TextColor.RESET}"),
@@ -44,9 +47,6 @@ while True:
 
         case "edit":
             i = int(input(f"{TextColor.PROMPT}Index of entry to edit: {TextColor.RESET}"))
-            '''if str(i) == "":
-                pass
-            elif int(i) >= 0:'''
             ch.edit_entry(i)
 
         case "exit":
