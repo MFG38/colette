@@ -64,12 +64,12 @@ class CommandHandler:
                         entry.deadline,
                         sep=" "
                     )
+                print()
                 return True
             else:
                 print(f"No results returned with the search term(s) '{search_key}'.")
+                print()
                 return False
-
-        print()
 
     def sort_list(sort_key: str):
         pass
