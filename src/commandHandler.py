@@ -10,6 +10,7 @@ import re
 #import argparse
 
 import todoHandler as th
+from textColors import *
 from version import *
 
 class CommandHandler:
@@ -92,15 +93,15 @@ class CommandHandler:
               first 3 letters (ex: Tuesday, Sat)
             - "today" or "tomorrow"
         The due date will be parsed based on its format and converted
-        into a usable date internally. For non-fixed due dates, they
-        will get automatically updated upon launching Colette if the
-        previous due date has passed.
+        into a usable date internally. For tasks with non-fixed due
+        dates, their due dates will get automatically updated upon
+        launching Colette if the previous due date has passed.
         '''
         if desc == "":
-            print("Description can't be an empty string!\nExiting prompt...")
+            print(f"{TextColor.ERROR}Description can't be an empty string!\nExiting prompt...{TextColor.RESET}")
             return
         elif len(desc) > 60:
-            print("Length of description exceeds character limit!\nExiting prompt...")
+            print(f"{TextColor.ERROR}Length of description exceeds character limit!\nExiting prompt...{TextColor.RESET}")
             return
 
         parsable_type = str(task_type)
@@ -114,11 +115,11 @@ class CommandHandler:
         elif parsable_type == "monthly" or parsable_type == "m":
             task_type = 3
         else:
-            print(f"{parsable_type} is not a recognized type!\nExiting prompt...")
+            print(f"{TextColor.ERROR}{parsable_type} is not a recognized type!\nExiting prompt...{TextColor.RESET}")
             return
 
         if deadline == "":
-            print("Deadline can't be an empty string!\nExiting prompt...")
+            print(f"{TextColor.ERROR}Deadline can't be an empty string!\nExiting prompt...{TextColor.RESET}")
             return
 
         item = th.TodoItem(desc, task_type, deadline)
@@ -129,7 +130,7 @@ class CommandHandler:
         Removes an entry from the todo list by its index.
         '''
         if index not in range(0, len(th.todo)):
-            print(f"Nothing found at index {index} - probably out of bounds.\nExiting prompt...")
+            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.\nExiting prompt...{TextColor.RESET}")
             return
         else:
             th.todo.remove(th.todo[index])
@@ -163,17 +164,17 @@ class CommandHandler:
         the entry will be left unmodified.
         '''
         if index not in range(0, len(th.todo)):
-            print(f"Nothing found at index {index} - probably out of bounds.\nExiting prompt...")
+            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.\nExiting prompt...{TextColor.RESET}")
             return
 
-        new_desc = input("Enter new description or leave blank to skip. ")
+        new_desc = input(f"{TextColor.PROMPT}Enter new description or leave blank to skip. {TextColor.RESET}")
 
         if new_desc == "":
             pass
         else:
             th.todo[index].desc = new_desc
 
-        new_type = input("Enter new type or leave blank to skip. ")
+        new_type = input(f"{TextColor.PROMPT}Enter new type or leave blank to skip. {TextColor.RESET}")
 
         if new_type == "":
             pass
@@ -186,10 +187,10 @@ class CommandHandler:
         elif new_type == "monthly" or new_type == "m":
             th.todo[index].task_type = 3
         else:
-            print(f"{new_type} is not a recognized type!\nExiting prompt...")
+            print(f"{TextColor.ERROR}{new_type} is not a recognized type!\nExiting prompt...{TextColor.RESET}")
             return
 
-        new_deadline = input("Enter new deadline or leave blank to skip. ")
+        new_deadline = input(f"{TextColor.PROMPT}Enter new deadline or leave blank to skip. {TextColor.RESET}")
 
         if new_deadline == "":
             pass

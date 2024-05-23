@@ -18,6 +18,15 @@ class RegexDates:
 
 #calendar.setfirstweekday(calendar.MONDAY)
 
+def get_current_year():
+    return dt.datetime.now().year
+
+def get_current_month():
+    return dt.datetime.now().month
+
+def get_current_day():
+    return dt.datetime.now().day
+
 def get_current_weekday():
     return dt.datetime.weekday(dt.date.today())
 
@@ -26,9 +35,9 @@ def parse_weekday_from_string(weekday: str):
 
     match weekday.lower():
         case "today":
-            parsed_wd = dt.datetime.weekday(dt.date.today())
+            parsed_wd = get_current_weekday()
         case "tomorrow":
-            parsed_wd = (dt.datetime.weekday(dt.date.today()) + 1) % 7
+            parsed_wd = (get_current_weekday() + 1) % 7
         case "mon" | "monday":
             parsed_wd = 0
         case "tue" | "tuesday":
@@ -57,21 +66,21 @@ def parse_deadline_from_string(deadline: str):
             m = deadline[5:6]
             d = deadline[8:9]
         case RegexDates.regex_month_day:
-            y = dt.datetime.now().year
+            y = get_current_year()
             m = deadline[5:6]
             d = deadline[8:9]
         case RegexDates.regex_weekday:
-            y = dt.datetime.now().year
-            m = dt.datetime.now().month
-            d = (dt.datetime.now().day + parse_weekday_from_string(deadline))
+            y = get_current_year()
+            m = get_current_month()
+            d = (get_current_day() + parse_weekday_from_string(deadline))
         case "today":
-            y = dt.datetime.now().year
-            m = dt.datetime.now().month
-            d = dt.datetime.now().day
+            y = get_current_year()
+            m = get_current_month()
+            d = get_current_day()
         case "tomorrow":
-            y = dt.datetime.now().year
-            m = dt.datetime.now().month
-            d = (dt.datetime.now().day + 1)
+            y = get_current_year()
+            m = get_current_month()
+            d = (get_current_day() + 1)
         case _:
             print(f"Failed to parse date from string {deadline}: invalid format.")
 
