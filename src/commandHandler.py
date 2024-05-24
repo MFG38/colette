@@ -65,14 +65,17 @@ class CommandHandler:
                         sep=" "
                     )
                 print()
-                return True
             else:
                 print(f"No results returned with the search term(s) '{search_key}'.")
                 print()
-                return False
 
-    def sort_list(sort_key: str):
-        pass
+        return len(found_entries)
+
+    def clear_list():
+        '''
+        Clears the entire todo list. Use with caution!
+        '''
+        th.todo.clear()
 
     def add_entry(desc: str, task_type: int, deadline: str):
         '''
@@ -145,13 +148,50 @@ class CommandHandler:
     def remove_entry_by_description(desc: str):
         '''
         Removes an entry from the todo list by its description.
-        Multiple descriptions can be given by separating them with
-        commas. If the search returns multiple entries, the program
+        If the search returns multiple entries, the program
         will prompt you for the index of the entry to be removed.
         If you wish to remove multiple entries, type them into the
         prompt with their indexes separated by commas.
         '''
-        pass
+        justifiers = [7, 63, 7, 15]
+        removable_entries = []
+
+        if desc != "":
+            for entry in th.todo:
+                if re.search(desc, entry.desc):
+                    removable_entries.append(entry)
+
+            if len(removable_entries) > 0:
+                for entry in removable_entries:
+                    print(
+                        str(th.todo.index(entry)).ljust(justifiers[0]),
+                        entry.desc.ljust(justifiers[1]),
+                        th.parse_task_type(entry.task_type).ljust(justifiers[2]),
+                        entry.deadline,
+                        sep=" "
+                    )
+                print()
+
+                if len(removable_entries) == 1:
+                    choice = input(f"{TextColor.PROMPT}Remove this entry from the todo list? {TextColor.RESET}")
+
+                    if choice == "yes" or choice == "y":
+                        CommandHandler.remove_entry_by_index(int(th.todo.index(removable_entries[0])))
+                    else:
+                        pass
+                elif len(removable_entries) >= 2:
+                    rem_these = input(f"{TextColor.PROMPT}Multiple entries containing '{desc}' were found.\nWhich entry/entries do you wish to remove? {TextColor.RESET}").split(",")
+                    rem_these.sort()
+                    rem_these.reverse()
+
+                    if len(rem_these) == 0:
+                        pass
+                    else:
+                        for i in rem_these:
+                            CommandHandler.remove_entry_by_index(int(i))
+            else:
+                print(f"No results returned with the search term(s) '{desc}'.")
+                print()
 
     def remove_expired_entries():
         '''
@@ -214,11 +254,16 @@ class CommandHandler:
         Colette accepts the following commands:
             list - Prints the todo list.
 
+            search - Searches the todo list for entries with the given
+            description and prints the results.
+
             add - Adds an entry to the todo list.
 
             rem[ove] - Removes an entry from the todo list by its index.
 
             edit - Modifies an entry in the todo list.
+
+            clear - Clears the entire todo list. Use with caution!
 
             help - Prints this help.
 

@@ -6,7 +6,7 @@
 - [x] Search for entries in list
 - [x] Add entries
 - [x] Remove entries by index
-- [ ] Remove entries by task description
+- [x] Remove entries by task description
 - [ ] Remove old entries (deadline has passed)
 - [x] Edit entries
 - [x] Save and read todo list to/from file

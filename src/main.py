@@ -39,15 +39,18 @@ while True:
             ch.add_entry(t.desc, t.task_type, t.deadline)
 
         case "rem" | "remove":
-            i = int(input(f"{TextColor.PROMPT}Index of entry to remove: {TextColor.RESET}"))
-            '''if str(i) == "":
-                pass
-            elif int(i) >= 0:'''
-            ch.remove_entry_by_index(i)
+            i = input(f"{TextColor.PROMPT}Index or description of entry to remove: {TextColor.RESET}")
+            if type(i) is int:
+                ch.remove_entry_by_index(i)
+            elif type(i) is str:
+                ch.remove_entry_by_description(i)
 
         case "edit":
             i = int(input(f"{TextColor.PROMPT}Index of entry to edit: {TextColor.RESET}"))
             ch.edit_entry(i)
+
+        case "clear":
+            ch.clear_list()
 
         case "exit":
             ch.exit_colette()
