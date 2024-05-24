@@ -15,7 +15,7 @@ Colette has the following dependencies:
 
 ### Running Colette
 
-Running Colette is as simple as running `main.py` from the src/ directory.
+Running Colette is as simple as running `main.py` from the **src/** directory.
 
 ## Credits
 

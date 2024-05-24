@@ -40,14 +40,14 @@ while True:
 
         case "rem" | "remove":
             i = input(f"{TextColor.PROMPT}Index or description of entry to remove: {TextColor.RESET}")
-            if type(i) is int:
+            try:
+                i = int(i)
                 ch.remove_entry_by_index(i)
-            elif type(i) is str:
+            except (ValueError, Exception):
                 ch.remove_entry_by_description(i)
 
         case "edit":
-            i = int(input(f"{TextColor.PROMPT}Index of entry to edit: {TextColor.RESET}"))
-            ch.edit_entry(i)
+            ch.edit_entry(int(input(f"{TextColor.PROMPT}Index of entry to edit: {TextColor.RESET}")))
 
         case "clear":
             ch.clear_list()
