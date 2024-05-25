@@ -12,6 +12,7 @@ import re
 import todoHandler as th
 from textColors import *
 from version import *
+from misc import *
 
 class CommandHandler:
     def __init__(self, cmd: str):
@@ -21,10 +22,6 @@ class CommandHandler:
         '''
         Prints the todo list.
         '''
-        header_titles = ["INDEX", "TASK DESCRIPTION", "TYPE", "DUE DATE"]
-        justifiers = [7, 63, 7, 15]
-        header_length = sum(justifiers)
-
         if len(th.todo) == 0:
             print("There's nothing in your todo list yet!\nStart by adding something with the ADD command.\n")
         else:
@@ -47,7 +44,6 @@ class CommandHandler:
         Searches the todo list for entries with the given description
         and prints all found entries.
         '''
-        justifiers = [7, 63, 7, 15]
         found_entries = []
 
         if search_key != "":
@@ -153,7 +149,6 @@ class CommandHandler:
         If you wish to remove multiple entries, type them into the
         prompt with their indexes separated by commas.
         '''
-        justifiers = [7, 63, 7, 15]
         removable_entries = []
 
         if desc != "":

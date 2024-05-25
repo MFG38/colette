@@ -1,6 +1,6 @@
 # Colette
 
-Colette is a WIP todo list manager that runs in the command line.
+**Colette** is a WIP todo list manager that runs in the command line.
 
 ## Building Colette
 
