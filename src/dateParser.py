@@ -14,8 +14,8 @@ import re
 from textColors import *
 
 class RegexDates:
-    regex_full_date = re.compile(r"\d{4}(.\d{2}){2}")
-    regex_month_day = re.compile(r"\d{2}.\d{2}")
+    regex_full_date = re.compile(r"\d{4}([-]\d{2}){2}")
+    regex_month_day = re.compile(r"\d{2}[-]\d{2}")
     regex_weekday = re.compile(r"mon(day?)?|tue(sday?)?|wed(nesday?)?|thu(rsday?)?|fri(day?)?|sat(urday?)?|sun(day?)?", re.I)
 
 #calendar.setfirstweekday(calendar.MONDAY)
@@ -63,13 +63,15 @@ def parse_deadline_from_string(deadline: str):
     y, m, d = 1970, 1, 1
 
     if re.match(RegexDates.regex_full_date, deadline):
-        y = deadline[0:3]
-        m = deadline[5:6]
-        d = deadline[8:9]
+        fuck = deadline.split("-")
+        y = int(fuck[0])
+        m = int(fuck[1])
+        d = int(fuck[2])
     elif re.match(RegexDates.regex_month_day, deadline):
+        fuck = deadline.split("-")
         y = get_current_year()
-        m = deadline[5:6]
-        d = deadline[8:9]
+        m = int(fuck[0])
+        d = int(fuck[1])
     elif re.match(RegexDates.regex_weekday, deadline):
         y = get_current_year()
         m = get_current_month()
