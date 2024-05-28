@@ -2,14 +2,20 @@
 
 ROOTDIR=$(pwd)
 
-if [ -f 'todo.clt' ]; then
-	rm todo.clt
-fi
+read -p "Deleting todo.clt. Are you sure? [Y/n] " CHOICE
 
-for dir in */; do
-	cd $dir
+if [ ! $CHOICE == 'n' ]; then
 	if [ -f 'todo.clt' ]; then
 		rm todo.clt
 	fi
-	cd $ROOTDIR
-done
+
+	for dir in */; do
+		cd $dir
+		if [ -f 'todo.clt' ]; then
+			rm todo.clt
+		fi
+		cd $ROOTDIR
+	done
+else
+	echo "Deletion aborted."
+fi

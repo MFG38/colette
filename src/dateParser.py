@@ -62,29 +62,28 @@ def parse_weekday_from_string(weekday: str):
 def parse_deadline_from_string(deadline: str):
     y, m, d = 1970, 1, 1
 
-    match deadline:
-        case RegexDates.regex_full_date:
-            y = deadline[0:3]
-            m = deadline[5:6]
-            d = deadline[8:9]
-        case RegexDates.regex_month_day:
-            y = get_current_year()
-            m = deadline[5:6]
-            d = deadline[8:9]
-        case RegexDates.regex_weekday:
-            y = get_current_year()
-            m = get_current_month()
-            d = (get_current_day() + parse_weekday_from_string(deadline))
-        case "today":
-            y = get_current_year()
-            m = get_current_month()
-            d = get_current_day()
-        case "tomorrow":
-            y = get_current_year()
-            m = get_current_month()
-            d = (get_current_day() + 1)
-        case _:
-            print(f"{TextColor.ERROR}Failed to parse date from string {deadline}: invalid format.{TextColor.RESET}")
+    if re.match(RegexDates.regex_full_date, deadline):
+        y = deadline[0:3]
+        m = deadline[5:6]
+        d = deadline[8:9]
+    elif re.match(RegexDates.regex_month_day, deadline):
+        y = get_current_year()
+        m = deadline[5:6]
+        d = deadline[8:9]
+    elif re.match(RegexDates.regex_weekday, deadline):
+        y = get_current_year()
+        m = get_current_month()
+        d = (get_current_day() + (parse_weekday_from_string(deadline) - get_current_weekday()))
+    elif deadline == "today":
+        y = get_current_year()
+        m = get_current_month()
+        d = get_current_day()
+    elif deadline == "tomorrow":
+        y = get_current_year()
+        m = get_current_month()
+        d = (get_current_day() + 1)
+    else:
+        print(f"{TextColor.ERROR}Failed to parse date from string {deadline}: invalid format.{TextColor.RESET}")
 
     return dt.date(y, m, d)
 
