@@ -10,6 +10,7 @@ import re
 #import argparse
 
 import todoHandler as th
+import dateParser as dtp
 from textColors import *
 from version import *
 from misc import *
@@ -128,7 +129,7 @@ class CommandHandler:
             print(f"{TextColor.ERROR}Deadline can't be an empty string!\nExiting prompt...{TextColor.RESET}")
             return
 
-        item = th.TodoItem(desc, task_type, deadline)
+        item = th.TodoItem(desc, task_type, dtp.parse_deadline_from_string(deadline))
         th.todo.append(item)
 
     def remove_entry_by_index(index: int):
@@ -241,7 +242,8 @@ class CommandHandler:
 
     def print_help():
         '''
-        Prints this help.
+        Prints a help message with a description of Colette and a
+        list of its commands.
         '''
         print("""
         Colette is a todo list manager that runs in the command line.

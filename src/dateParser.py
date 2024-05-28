@@ -20,6 +20,9 @@ class RegexDates:
 
 #calendar.setfirstweekday(calendar.MONDAY)
 
+def get_current_full_date():
+    return dt.date.today()
+
 def get_current_year():
     return dt.datetime.now().year
 
@@ -89,11 +92,8 @@ def parse_deadline_from_string(deadline: str):
 
     return dt.date(y, m, d)
 
-def convert_string_to_date(deadline: str):
-    pass
-
 if __name__ == "__main__":
-    print(f"{dt.date.today()}, {get_current_weekday()}")
+    print(f"{get_current_full_date()}, {get_current_weekday()}")
 
     while True:
         p = parse_deadline_from_string(input("test> "))

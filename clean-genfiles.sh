@@ -2,9 +2,9 @@
 
 ROOTDIR=$(pwd)
 
-read -p "Deleting todo.clt. Are you sure? [Y/n] " CHOICE
+read -p "Deleting todo.clt. Are you sure? [y/n] " CHOICE
 
-if [ ! $CHOICE == 'n' ]; then
+if [ $CHOICE == 'y' ]; then
 	if [ -f 'todo.clt' ]; then
 		rm todo.clt
 	fi
@@ -16,6 +16,6 @@ if [ ! $CHOICE == 'n' ]; then
 		fi
 		cd $ROOTDIR
 	done
-else
+elif [ $CHOICE == 'n' ]; then
 	echo "Deletion aborted."
 fi

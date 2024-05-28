@@ -1,8 +1,8 @@
 #!/bin/env bash
 
-read -p "Deleting __pycache__. Are you sure? [Y/n] " CHOICE
+read -p "Deleting __pycache__. Are you sure? [y/n] " CHOICE
 
-if [ ! $CHOICE == 'n' ]; then
+if [ $CHOICE == 'y' ]; then
 	cd src/
 
 	if [ -d __pycache__ ]; then
@@ -11,6 +11,6 @@ if [ ! $CHOICE == 'n' ]; then
 	else
 		echo "No cache to clean!"
 	fi
-else
+elif [ $CHOICE == 'n' ]; then
 	echo "Deletion aborted."
 fi
