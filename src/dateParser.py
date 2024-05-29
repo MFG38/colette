@@ -75,7 +75,10 @@ def parse_deadline_from_string(deadline: str):
         y = get_current_year()
         m = get_current_month()
         d = get_current_day()
-        tdelta = (get_current_weekday() + (parse_weekday_from_string(deadline) - get_current_weekday()))
+        if parse_weekday_from_string(deadline) <= get_current_weekday():
+            tdelta = ((parse_weekday_from_string(deadline) - get_current_weekday()) + 7)
+        else:
+            tdelta = (parse_weekday_from_string(deadline) - get_current_weekday())
     elif deadline == "today":
         y = get_current_year()
         m = get_current_month()
