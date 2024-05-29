@@ -64,33 +64,31 @@ def parse_weekday_from_string(weekday: str):
 
 def parse_deadline_from_string(deadline: str):
     y, m, d = 1970, 1, 1
+    tdelta = 0
 
     if re.match(RegexDates.regex_full_date, deadline):
-        fuck = deadline.split("-")
-        y = int(fuck[0])
-        m = int(fuck[1])
-        d = int(fuck[2])
+        y, m, d = map(int, deadline.split("-"))
     elif re.match(RegexDates.regex_month_day, deadline):
-        fuck = deadline.split("-")
         y = get_current_year()
-        m = int(fuck[0])
-        d = int(fuck[1])
+        m, d = map(int, deadline.split("-"))
     elif re.match(RegexDates.regex_weekday, deadline):
         y = get_current_year()
         m = get_current_month()
-        d = (get_current_day() + (parse_weekday_from_string(deadline) - get_current_weekday()))
+        d = get_current_day()
+        tdelta = (get_current_weekday() + (parse_weekday_from_string(deadline) - get_current_weekday()))
     elif deadline == "today":
         y = get_current_year()
         m = get_current_month()
         d = get_current_day()
     elif deadline == "tomorrow":
+        tdelta = 1
         y = get_current_year()
         m = get_current_month()
-        d = (get_current_day() + 1)
+        d = get_current_day()
     else:
         print(f"{TextColor.ERROR}Failed to parse date from string {deadline}: invalid format.{TextColor.RESET}")
 
-    return dt.date(y, m, d)
+    return (dt.date(y, m, d) + dt.timedelta(days=tdelta))
 
 if __name__ == "__main__":
     print(f"{get_current_full_date()}, {get_current_weekday()}")
