@@ -10,7 +10,8 @@
 - [ ] Remove old entries (deadline has passed)
 - [x] Edit entries
 - [x] Save and read todo list to/from file
-- [ ] Date parser
+- [x] Date parser
+- [ ] Due date updater
 
 ## Extras
 - [ ] Command history and scrollback
