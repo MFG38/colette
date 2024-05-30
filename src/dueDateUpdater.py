@@ -11,6 +11,10 @@ import calendar
 import todoHandler as th
 import dateParser as dtp
 
+def parse_date_from_string(deadline: str):
+    y, m, d = map(int, deadline.split("-"))
+    return dt.date(y, m, d)
+
 def update_deadlines():
     for entry in th.todo:
         y, m, d = map(int, entry.deadline.split("-"))
