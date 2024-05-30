@@ -27,6 +27,9 @@ while True:
         case "list":
             ch.print_list()
 
+        case "sort":
+            ch.sort_list(input(f"{TextColor.PROMPT}Sort by desc(ription), type or deadline? {TextColor.RESET}"))
+
         case "search":
             ch.search_list(input(f"{TextColor.PROMPT}Enter search term(s): {TextColor.RESET}"))
 

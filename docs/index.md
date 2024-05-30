@@ -35,6 +35,7 @@ Below is a list of the commands that Colette supports. See each command's dedica
 - [list](./cmd/list.md)
 - [rem(ove)](./cmd/remove.md)
 - [search](./cmd/search.md)
+- [sort](./cmd/sort.md)
 - [ver(sion)](./cmd/version.md)
 
 ## License

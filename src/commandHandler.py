@@ -68,6 +68,20 @@ class CommandHandler:
 
         return len(found_entries)
 
+    def sort_list(sort_key: str):
+        '''
+        Sorts the todo list by a given key. The key can be either
+        desc(ription), type or deadline.
+        '''
+        if sort_key == "desc" or sort_key == "description":
+            th.todo.sort(key=lambda TodoItem: TodoItem.desc)
+        elif sort_key == "type":
+            th.todo.sort(key=lambda TodoItem: TodoItem.task_type)
+        elif sort_key == "deadline":
+            th.todo.sort(key=lambda TodoItem: TodoItem.deadline)
+        else:
+            print(f"{TextColor.ERROR}{sort_key} is not a valid sort key!{TextColor.RESET}")
+
     def clear_list():
         '''
         Clears the entire todo list. Use with caution!
@@ -255,6 +269,8 @@ class CommandHandler:
 
             search - Searches the todo list for entries with the given
             description and prints the results.
+
+            sort - Sorts the todo list by a given key.
 
             add - Adds an entry to the todo list.
 

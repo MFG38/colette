@@ -22,4 +22,5 @@ nav:
    - 'list': cmd/list.md
    - 'rem(ove)': cmd/remove.md
    - 'search': cmd/search.md
+   - 'sort': cmd/sort.md
    - 'ver(sion)': cmd/version.md
