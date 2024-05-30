@@ -7,7 +7,7 @@
 
 import os
 import re
-#import argparse
+from datetime import date
 
 import todoHandler as th
 import dateParser as dtp
@@ -194,7 +194,9 @@ class CommandHandler:
         Removes all fixed-deadline entries with expired due dates
         from the todo list.
         '''
-        pass
+        for entry in th.todo:
+            if entry.task_type == 0 and entry.deadline < date.today():
+                th.todo.remove(th.todo[th.todo.index(entry)])
 
     def edit_entry(index: int):
         '''
@@ -238,7 +240,7 @@ class CommandHandler:
         if new_deadline == "":
             pass
         else:
-            th.todo[index].deadline = new_deadline
+            th.todo[index].deadline = dtp.parse_deadline_from_string(new_deadline)
 
     def print_help():
         '''
@@ -257,6 +259,9 @@ class CommandHandler:
             add - Adds an entry to the todo list.
 
             rem[ove] - Removes an entry from the todo list by its index.
+
+            a[uto]rem[ove] - Removes all fixed-deadline extries with
+            expired due dates from the todo list.
 
             edit - Modifies an entry in the todo list.
 

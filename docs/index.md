@@ -24,9 +24,10 @@ Running Colette is as simple as running `main.py` from the **src/** directory.
 
 ### Commands
 
-Below is a list of the commands that Colette supports. See each command's dedicated documentation page for usage instructions.
+Below is a list of the commands that Colette supports. See each command's dedicated documentation page for usage instructions. Parts of the commands enclosed in parentheses are optional.
 
 - [add](./cmd/add.md)
+- [a(uto)rem(ove)](./cmd/autoremove.md)
 - [clear](./cmd/clear.md)
 - [edit](./cmd/edit.md)
 - [exit](./cmd/exit.md)

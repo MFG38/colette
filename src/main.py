@@ -46,6 +46,9 @@ while True:
             except (ValueError, Exception):
                 ch.remove_entry_by_description(i)
 
+        case "autorem" | "autoremove" | "arem" | "aremove":
+            ch.remove_expired_entries()
+
         case "edit":
             ch.edit_entry(int(input(f"{TextColor.PROMPT}Index of entry to edit: {TextColor.RESET}")))
 

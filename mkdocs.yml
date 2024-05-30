@@ -14,6 +14,7 @@ nav:
  - 'Main page': index.md
  - 'Commands':
    - 'add': cmd/add.md
+   - 'a(uto)rem(ove)': cmd/autoremove.md
    - 'clear': cmd/clear.md
    - 'edit': cmd/edit.md
    - 'exit': cmd/exit.md

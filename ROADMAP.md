@@ -7,7 +7,7 @@
 - [x] Add entries
 - [x] Remove entries by index
 - [x] Remove entries by task description
-- [ ] Remove old entries (deadline has passed)
+- [x] Remove old entries (deadline has passed)
 - [x] Edit entries
 - [x] Save and read todo list to/from file
 - [x] Date parser
