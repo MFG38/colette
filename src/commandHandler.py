@@ -105,10 +105,10 @@ class CommandHandler:
         launching Colette if the previous due date has passed.
         '''
         if desc == "":
-            print(f"{TextColor.ERROR}Description can't be an empty string!\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}Description can't be an empty string!{TextColor.RESET}")
             return
         elif len(desc) > 60:
-            print(f"{TextColor.ERROR}Length of description exceeds character limit!\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}Length of description exceeds character limit!{TextColor.RESET}")
             return
 
         parsable_type = str(task_type)
@@ -122,11 +122,11 @@ class CommandHandler:
         elif parsable_type == "monthly" or parsable_type == "m":
             task_type = 3
         else:
-            print(f"{TextColor.ERROR}{parsable_type} is not a recognized type!\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}{parsable_type} is not a recognized type!{TextColor.RESET}")
             return
 
         if deadline == "":
-            print(f"{TextColor.ERROR}Deadline can't be an empty string!\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}Deadline can't be an empty string!{TextColor.RESET}")
             return
 
         item = th.TodoItem(desc, task_type, dtp.parse_deadline_from_string(deadline))
@@ -169,7 +169,7 @@ class CommandHandler:
                 print()
 
                 if len(removable_entries) == 1:
-                    choice = input(f"{TextColor.PROMPT}Remove this entry from the todo list? {TextColor.RESET}")
+                    choice = input(f"{TextColor.PROMPT}Remove this entry from the todo list? [y(es)/N(O)] {TextColor.RESET}")
 
                     if choice == "yes" or choice == "y":
                         CommandHandler.remove_entry_by_index(int(th.todo.index(removable_entries[0])))
@@ -207,7 +207,7 @@ class CommandHandler:
         the entry will be left unmodified.
         '''
         if index not in range(0, len(th.todo)):
-            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.{TextColor.RESET}")
             return
 
         new_desc = input(f"{TextColor.PROMPT}Enter new description or leave blank to skip. {TextColor.RESET}")
@@ -230,7 +230,7 @@ class CommandHandler:
         elif new_type == "monthly" or new_type == "m":
             th.todo[index].task_type = 3
         else:
-            print(f"{TextColor.ERROR}{new_type} is not a recognized type!\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}{new_type} is not a recognized type!{TextColor.RESET}")
             return
 
         new_deadline = input(f"{TextColor.PROMPT}Enter new deadline or leave blank to skip. {TextColor.RESET}")

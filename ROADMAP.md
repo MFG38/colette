@@ -11,7 +11,7 @@
 - [x] Edit entries
 - [x] Save and read todo list to/from file
 - [x] Date parser
-- [ ] Due date updater
+- [x] Due date updater
 
 ## Extras
 - [ ] Command history and scrollback

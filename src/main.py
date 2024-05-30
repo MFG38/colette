@@ -7,17 +7,17 @@
 from commandHandler import CommandHandler as ch
 from todoHandler import *
 from textColors import *
+from dueDateUpdater import *
 
 get_todo_list()
 read_todo_list()
 
+update_deadlines()
+
 while True:
     cmd = input("cmd> ").split(" ")
-    cmd_main = cmd[0].lower()
-    if len(cmd) > 1:
-        cmd_args = cmd[1:].lower()
 
-    match cmd_main:
+    match cmd[0]:
         case "help":
             ch.print_help()
 
