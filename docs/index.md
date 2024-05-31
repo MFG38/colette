@@ -30,7 +30,7 @@ Below is a list of the commands that Colette supports. See each command's dedica
 - [a(uto)rem(ove)](./cmd/autoremove.md)
 - [clear](./cmd/clear.md)
 - [edit](./cmd/edit.md)
-- [exit](./cmd/exit.md)
+- [exit/quit](./cmd/exit_quit.md)
 - [help](./cmd/help.md)
 - [list](./cmd/list.md)
 - [rem(ove)](./cmd/remove.md)

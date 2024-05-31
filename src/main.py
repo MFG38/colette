@@ -58,7 +58,7 @@ while True:
         case "clear":
             ch.clear_list()
 
-        case "exit":
+        case "exit" | "quit":
             ch.exit_colette()
 
         case _:

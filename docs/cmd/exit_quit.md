@@ -1,4 +1,4 @@
-# Commands: exit
+# Commands: exit/quit
 
 ---
 

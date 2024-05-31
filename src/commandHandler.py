@@ -287,7 +287,7 @@ class CommandHandler:
 
             ver[sion] - Prints Colette's version information.
 
-            exit - Saves changes to the todo list and quits Colette.
+            exit/quit - Saves changes to the todo list and quits Colette.
         """)
 
     def print_version_info():
