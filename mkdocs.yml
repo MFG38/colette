@@ -2,25 +2,28 @@ site_name: Colette
 site_url: ""
 site_author: Santtu Pesonen
 
+repo_url: https://github.com/MFG38/colette
+edit_uri: tree/main/docs/
+
 use_directory_urls: false
 plugins: []
 
 theme:
   name: mkdocs
-  color_mode: dark
+  color_mode: auto
   user_color_mode_toggle: true
 
 nav:
- - 'Main page': index.md
- - 'Commands':
-   - 'add': cmd/add.md
-   - 'a(uto)rem(ove)': cmd/autoremove.md
-   - 'clear': cmd/clear.md
-   - 'edit': cmd/edit.md
-   - 'exit/quit': cmd/exit_quit.md
-   - 'help': cmd/help.md
-   - 'list': cmd/list.md
-   - 'rem(ove)': cmd/remove.md
-   - 'search': cmd/search.md
-   - 'sort': cmd/sort.md
-   - 'ver(sion)': cmd/version.md
+  - 'Main page': index.md
+  - 'Commands':
+    - 'add': cmd/add.md
+    - 'a(uto)rem(ove)': cmd/autoremove.md
+    - 'clear': cmd/clear.md
+    - 'edit': cmd/edit.md
+    - 'exit/quit': cmd/exit_quit.md
+    - 'help': cmd/help.md
+    - 'list': cmd/list.md
+    - 'rem(ove)': cmd/remove.md
+    - 'search': cmd/search.md
+    - 'sort': cmd/sort.md
+    - 'ver(sion)': cmd/version.md
