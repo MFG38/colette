@@ -18,5 +18,5 @@
 - [ ] Program configuration (likely through TOML)
 - [ ] Command line options for commands
 - [ ] Mark tasks as urgent
-- [ ] Deadline/urgency reminders
+- [x] Deadline/urgency reminders
 - [ ] Localization support

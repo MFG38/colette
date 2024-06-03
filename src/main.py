@@ -8,11 +8,13 @@ from commandHandler import CommandHandler as ch
 from todoHandler import *
 from textColors import *
 from dueDateUpdater import *
+from reminder import *
 
 get_todo_list()
 read_todo_list()
 
 update_deadlines()
+print_reminders()
 
 while True:
     cmd = input("cmd> ").split(" ")

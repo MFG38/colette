@@ -5,5 +5,5 @@
 '''
 
 header_titles = ["INDEX", "TASK DESCRIPTION", "TYPE", "DUE DATE"]
-justifiers = [7, 63, 7, 15]
+justifiers = [8, 64, 8, 12]
 header_length = sum(justifiers)

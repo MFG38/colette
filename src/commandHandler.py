@@ -27,16 +27,18 @@ class CommandHandler:
         if len(th.todo) == 0:
             print("There's nothing in your todo list yet!\nStart by adding something with the ADD command.\n")
         else:
-            print(f"{' '.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}")
+            print(f"{''.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}")
             print("-" * header_length)
 
             for entry in th.todo:
                 print(
+                    f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
                     str(th.todo.index(entry)).ljust(justifiers[0]),
                     entry.desc.ljust(justifiers[1]),
                     th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                     entry.deadline,
-                    sep=" "
+                    f"{TextColor.RESET}" if entry.deadline == dtp.get_current_full_date() else "",
+                    sep=""
                 )
 
             print()
@@ -56,13 +58,11 @@ class CommandHandler:
             if len(found_entries) > 0:
                 for entry in found_entries:
                     print(
-                        #f"{TextColor.DUETODAY}",
                         str(th.todo.index(entry)).ljust(justifiers[0]),
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
-                        #f"{TextColor.RESET}",
-                        sep=" "
+                        sep=""
                     )
                 print()
             else:
@@ -188,7 +188,7 @@ class CommandHandler:
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
-                        sep=" "
+                        sep=""
                     )
                 print()
 
