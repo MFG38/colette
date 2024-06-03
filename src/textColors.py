@@ -32,6 +32,7 @@ class TextColor:
     DEBUG       = CYAN
     PROMPT      = GREEN
     DUETODAY    = BLACK + REDB
+    EXPIRED     = BLACK + PURPLEB
     REMINDER    = YELLOW
 
 if __name__ == "__main__":

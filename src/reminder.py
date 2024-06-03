@@ -13,15 +13,24 @@ from dueDateUpdater import *
 # only used for testing purposes within this module itself.
 
 def print_reminders():
-    remindable_tasks = []
+    tasks_due_today = []
+    tasks_with_passed_deadlines = []
 
     for entry in th.todo:
         if entry.deadline == dtp.get_current_full_date():
-            remindable_tasks.append(entry.desc)
+            tasks_due_today.append(entry.desc)
+        elif entry.deadline < dtp.get_current_full_date():
+            tasks_with_passed_deadlines.append(entry.desc)
 
-    if len(remindable_tasks) > 0:
-        print(f"{TextColor.REMINDER}REMINDER: You have {len(remindable_tasks)} task(s) due today:{TextColor.RESET}")
-        for i in remindable_tasks:
+    if len(tasks_due_today) > 0:
+        print(f"{TextColor.REMINDER}REMINDER: You have {len(tasks_due_today)} task(s) due today:{TextColor.RESET}")
+        for i in tasks_due_today:
+            print(i, sep=", ")
+        print()
+
+    if len(tasks_with_passed_deadlines) > 0:
+        print(f"{TextColor.REMINDER}{len(tasks_with_passed_deadlines)} task(s) found with passed due date(s):{TextColor.RESET}")
+        for i in tasks_with_passed_deadlines:
             print(i, sep=", ")
         print()
 

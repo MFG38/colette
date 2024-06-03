@@ -18,8 +18,6 @@ class RegexDates:
     regex_month_day = re.compile(r"\d{2}[-]\d{2}")
     regex_weekday = re.compile(r"mon(day?)?|tue(sday?)?|wed(nesday?)?|thu(rsday?)?|fri(day?)?|sat(urday?)?|sun(day?)?", re.I)
 
-#calendar.setfirstweekday(calendar.MONDAY)
-
 def get_current_full_date():
     return dt.date.today()
 

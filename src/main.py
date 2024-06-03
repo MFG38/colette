@@ -64,4 +64,4 @@ while True:
             ch.exit_colette()
 
         case _:
-            print(f"{TextColor.ERROR}{cmd_main} is not a recognized command.{TextColor.RESET}")
+            print(f"{TextColor.ERROR}{cmd[0]} is not a recognized command.{TextColor.RESET}")

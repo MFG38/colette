@@ -33,11 +33,12 @@ class CommandHandler:
             for entry in th.todo:
                 print(
                     f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
+                    f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
                     str(th.todo.index(entry)).ljust(justifiers[0]),
                     entry.desc.ljust(justifiers[1]),
                     th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                     entry.deadline,
-                    f"{TextColor.RESET}" if entry.deadline == dtp.get_current_full_date() else "",
+                    f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() else "",
                     sep=""
                 )
 
@@ -58,10 +59,13 @@ class CommandHandler:
             if len(found_entries) > 0:
                 for entry in found_entries:
                     print(
+                        f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
+                        f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
                         str(th.todo.index(entry)).ljust(justifiers[0]),
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
+                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() else "",
                         sep=""
                     )
                 print()
@@ -184,10 +188,13 @@ class CommandHandler:
             if len(removable_entries) > 0:
                 for entry in removable_entries:
                     print(
+                        f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
+                        f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
                         str(th.todo.index(entry)).ljust(justifiers[0]),
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
+                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() else "",
                         sep=""
                     )
                 print()
@@ -290,7 +297,7 @@ class CommandHandler:
 
             add - Adds an entry to the todo list.
 
-            rem[ove] - Removes an entry from the todo list by its index.
+            rem[ove] - Removes an entry from the todo list.
 
             a[uto]rem[ove] - Removes all fixed-deadline extries with
             expired due dates from the todo list.
