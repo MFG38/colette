@@ -7,6 +7,7 @@
 
 import os
 import re
+import argparse
 from datetime import date
 
 import todoHandler as th
@@ -55,10 +56,12 @@ class CommandHandler:
             if len(found_entries) > 0:
                 for entry in found_entries:
                     print(
+                        #f"{TextColor.DUETODAY}",
                         str(th.todo.index(entry)).ljust(justifiers[0]),
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
+                        #f"{TextColor.RESET}",
                         sep=" "
                     )
                 print()
@@ -82,11 +85,14 @@ class CommandHandler:
         else:
             print(f"{TextColor.ERROR}{sort_key} is not a valid sort key!{TextColor.RESET}")
 
+        th.save_todo_list()
+
     def clear_list():
         '''
         Clears the entire todo list. Use with caution!
         '''
         th.todo.clear()
+        th.save_todo_list()
 
     def add_entry(desc: str, task_type: int, deadline: str):
         '''
@@ -146,6 +152,8 @@ class CommandHandler:
         item = th.TodoItem(desc, task_type, dtp.parse_deadline_from_string(deadline))
         th.todo.append(item)
 
+        th.save_todo_list()
+
     def remove_entry_by_index(index: int):
         '''
         Removes an entry from the todo list by its index.
@@ -155,6 +163,8 @@ class CommandHandler:
             return
         else:
             th.todo.remove(th.todo[index])
+
+        th.save_todo_list()
 
     def remove_entry_by_description(desc: str):
         '''
@@ -203,6 +213,8 @@ class CommandHandler:
                 print(f"No results returned with the search term(s) '{desc}'.")
                 print()
 
+        th.save_todo_list()
+
     def remove_expired_entries():
         '''
         Removes all fixed-deadline entries with expired due dates
@@ -211,6 +223,8 @@ class CommandHandler:
         for entry in th.todo:
             if entry.task_type == 0 and entry.deadline < date.today():
                 th.todo.remove(th.todo[th.todo.index(entry)])
+
+        th.save_todo_list()
 
     def edit_entry(index: int):
         '''
@@ -256,6 +270,8 @@ class CommandHandler:
         else:
             th.todo[index].deadline = dtp.parse_deadline_from_string(new_deadline)
 
+        th.save_todo_list()
+
     def print_help():
         '''
         Prints a help message with a description of Colette and a
@@ -287,7 +303,7 @@ class CommandHandler:
 
             ver[sion] - Prints Colette's version information.
 
-            exit/quit - Saves changes to the todo list and quits Colette.
+            exit/quit - Quits Colette.
         """)
 
     def print_version_info():
@@ -298,7 +314,6 @@ class CommandHandler:
 
     def exit_colette():
         '''
-        Saves changes to the todo list and quits Colette.
+        Quits Colette.
         '''
-        th.save_todo_list()
         exit()
