@@ -7,6 +7,7 @@
 
 import todoHandler as th
 import dateParser as dtp
+from textColors import *
 from dueDateUpdater import *
 # Worth noting about the dueDateUpdater import: parse_date_from_string() is
 # only used for testing purposes within this module itself.
@@ -19,7 +20,7 @@ def print_reminders():
             remindable_tasks.append(entry.desc)
 
     if len(remindable_tasks) > 0:
-        print(f"REMINDER: You have {len(remindable_tasks)} task(s) due today:")
+        print(f"{TextColor.REMINDER}REMINDER: You have {len(remindable_tasks)} task(s) due today:{TextColor.RESET}")
         for i in remindable_tasks:
             print(i, sep=", ")
         print()

@@ -69,8 +69,11 @@ def parse_deadline_from_string(deadline: str):
     if re.match(RegexDates.regex_full_date, deadline):
         y, m, d = map(int, deadline.split("-"))
     elif re.match(RegexDates.regex_month_day, deadline):
-        y = get_current_year()
         m, d = map(int, deadline.split("-"))
+        if dt.date(get_current_year(), m, d) < get_current_full_date():
+            y = (get_current_year() + 1)
+        else:
+            y = get_current_year()
     elif re.match(RegexDates.regex_weekday, deadline):
         y = get_current_year()
         m = get_current_month()
