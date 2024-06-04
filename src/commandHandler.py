@@ -12,6 +12,7 @@ from datetime import date
 
 import todoHandler as th
 import dateParser as dtp
+import settings
 from textColors import *
 from version import *
 from misc import *
@@ -73,21 +74,27 @@ class CommandHandler:
                 print(f"No results returned with the search term(s) '{search_key}'.")
                 print()
 
+        if settings.debug_mode == True:
+            print(f"{TextColor.DEBUG}Search term(s) '{search_key}' returned {len(found_entries)} entries.{TextColor.RESET}")
+
         return len(found_entries)
 
-    def sort_list(sort_key: str):
+    def sort_list(sort_key: str, desc_order: bool):
         '''
         Sorts the todo list by a given key. The key can be either
         desc(ription), type or deadline.
         '''
         if sort_key == "desc" or sort_key == "description":
-            th.todo.sort(key=lambda TodoItem: TodoItem.desc)
+            th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.desc)
         elif sort_key == "type":
-            th.todo.sort(key=lambda TodoItem: TodoItem.task_type)
+            th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.task_type)
         elif sort_key == "deadline":
-            th.todo.sort(key=lambda TodoItem: TodoItem.deadline)
+            th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.deadline)
         else:
             print(f"{TextColor.ERROR}{sort_key} is not a valid sort key!{TextColor.RESET}")
+
+        if settings.debug_mode == True:
+            print(f"{TextColor.DEBUG}Sorting todo list by {sort_key}...{TextColor.RESET}")
 
         th.save_todo_list()
 
@@ -95,6 +102,9 @@ class CommandHandler:
         '''
         Clears the entire todo list. Use with caution!
         '''
+        if settings.debug_mode == True:
+            print(f"{TextColor.DEBUG}Clearing todo list...{TextColor.RESET}")
+
         th.todo.clear()
         th.save_todo_list()
 
@@ -158,14 +168,19 @@ class CommandHandler:
 
         th.save_todo_list()
 
+        if settings.debug_mode == True:
+            print(f"{TextColor.DEBUG}Added entry at index {len(th.todo) - 1}.{TextColor.RESET}")
+
     def remove_entry_by_index(index: int):
         '''
         Removes an entry from the todo list by its index.
         '''
         if index not in range(0, len(th.todo)):
-            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.\nExiting prompt...{TextColor.RESET}")
+            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.{TextColor.RESET}")
             return
         else:
+            if settings.debug_mode == True:
+                print(f"{TextColor.DEBUG}Removing entry at index {index}...{TextColor.RESET}")
             th.todo.remove(th.todo[index])
 
         th.save_todo_list()
@@ -203,6 +218,8 @@ class CommandHandler:
                     choice = input(f"{TextColor.PROMPT}Remove this entry from the todo list? [y(es)/N(O)] {TextColor.RESET}")
 
                     if choice == "yes" or choice == "y":
+                        if settings.debug_mode == True:
+                            print(f"{TextColor.DEBUG}Removing entry at index {removable_entries}...{TextColor.RESET}")
                         CommandHandler.remove_entry_by_index(int(th.todo.index(removable_entries[0])))
                     else:
                         pass
@@ -215,6 +232,8 @@ class CommandHandler:
                         pass
                     else:
                         for i in rem_these:
+                            if settings.debug_mode == True:
+                                print(f"{TextColor.DEBUG}Removing entries at indexes {removable_entries}...{TextColor.RESET}")
                             CommandHandler.remove_entry_by_index(int(i))
             else:
                 print(f"No results returned with the search term(s) '{desc}'.")
@@ -232,6 +251,9 @@ class CommandHandler:
                 th.todo.remove(th.todo[th.todo.index(entry)])
 
         th.save_todo_list()
+
+        if settings.debug_mode == True:
+            print(f"{TextColor.DEBUG}{TextColor.RESET}")
 
     def edit_entry(index: int):
         '''
@@ -279,6 +301,9 @@ class CommandHandler:
 
         th.save_todo_list()
 
+        if settings.debug_mode == True:
+            print(f"{TextColor.DEBUG}Edited entry at index {index}.{TextColor.RESET}")
+
     def print_help():
         '''
         Prints a help message with a description of Colette and a
@@ -310,6 +335,8 @@ class CommandHandler:
 
             ver[sion] - Prints Colette's version information.
 
+            debug - Toggles debug mode.
+
             exit/quit - Quits Colette.
         """)
 
@@ -324,3 +351,10 @@ class CommandHandler:
         Quits Colette.
         '''
         exit()
+
+    def toggle_debug_mode():
+        '''
+        Toggles debug mode.
+        '''
+        settings.debug_mode = not settings.debug_mode
+        print(f"{TextColor.DEBUG}Debug mode is now {settings.debug_mode}.{TextColor.RESET}")

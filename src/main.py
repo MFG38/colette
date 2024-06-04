@@ -26,11 +26,17 @@ while True:
         case "ver" | "version":
             ch.print_version_info()
 
+        case "debug":
+            ch.toggle_debug_mode()
+
         case "list":
             ch.print_list()
 
         case "sort":
-            ch.sort_list(input(f"{TextColor.PROMPT}Sort by desc(ription), type or deadline? {TextColor.RESET}"))
+            ch.sort_list(
+                input(f"{TextColor.PROMPT}Sort by desc(ription), type or deadline? {TextColor.RESET}"),
+                True if input(f"{TextColor.PROMPT}Sort in descending order? {TextColor.RESET}") == "y" else False
+            )
 
         case "search":
             ch.search_list(input(f"{TextColor.PROMPT}Enter search term(s): {TextColor.RESET}"))

@@ -19,6 +19,7 @@ nav:
     - 'add': cmd/add.md
     - 'a(uto)rem(ove)': cmd/autoremove.md
     - 'clear': cmd/clear.md
+    - 'debug': cmd/debug.md
     - 'edit': cmd/edit.md
     - 'exit/quit': cmd/exit_quit.md
     - 'help': cmd/help.md
