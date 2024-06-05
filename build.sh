@@ -12,7 +12,7 @@ if [ $NOCONFIRM == 'y' ]; then
 	BUILDARGS+=" --noconfirm"
 fi
 
-echo "Final command: pyinstaller $(BUILDARGS) --onedir src/main.py"
+echo "Final command: pyinstaller $(BUILDARGS) --onedir --name colette src/main.py"
 read -p "Build Colette with this command? " BUILDWITHCMD
 
 if [ $BUILDWITHCMD == 'y' ]; then
