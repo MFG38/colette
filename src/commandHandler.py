@@ -5,6 +5,7 @@
     Colette's CLI.
 '''
 
+import sys
 import os
 import re
 import argparse
@@ -350,7 +351,7 @@ class CommandHandler:
         '''
         Quits Colette.
         '''
-        exit()
+        sys.exit()
 
     def toggle_debug_mode():
         '''
