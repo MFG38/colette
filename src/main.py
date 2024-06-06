@@ -9,6 +9,7 @@ from todoHandler import *
 from textColors import *
 from dueDateUpdater import *
 from reminder import *
+from misc import *
 
 get_todo_list()
 read_todo_list()
@@ -35,7 +36,7 @@ while True:
         case "sort":
             ch.sort_list(
                 input(f"{TextColor.PROMPT}Sort by desc(ription), type or deadline? {TextColor.RESET}"),
-                True if input(f"{TextColor.PROMPT}Sort in descending order? {TextColor.RESET}") == "y" else False
+                True if input(f"{TextColor.PROMPT}Sort in descending order? [y(es)/N(O)] {TextColor.RESET}") in cmd_yes else False
             )
 
         case "search":
@@ -62,7 +63,7 @@ while True:
                 ch.remove_entry_by_description(i)
 
         case "autorem" | "autoremove" | "arem" | "aremove":
-            ch.remove_expired_entries()
+            ch.remove_completed_and_expired_entries()
 
         case "edit":
             ch.edit_entry(int(input(f"{TextColor.PROMPT}Index of entry to edit: {TextColor.RESET}")))

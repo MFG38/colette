@@ -107,7 +107,7 @@ class CommandHandler:
         print(f"{TextColor.WARNING}WARNING: You are about to clear the ENTIRE todo list!{TextColor.RESET}")
         confirm = input(f"{TextColor.PROMPT}Are you sure you want to do this? {TextColor.RESET}")
 
-        if confirm == 'yes' or confirm == 'y':
+        if confirm in cmd_yes:
             if settings.debug_mode == True:
                 print(f"{TextColor.DEBUG}Clearing todo list...{TextColor.RESET}")
 
@@ -243,7 +243,7 @@ class CommandHandler:
                 if len(removable_entries) == 1:
                     choice = input(f"{TextColor.PROMPT}Remove this entry from the todo list? [y(es)/N(O)] {TextColor.RESET}")
 
-                    if choice == "yes" or choice == "y":
+                    if choice in cmd_yes:
                         if settings.debug_mode == True:
                             print(f"{TextColor.DEBUG}Removing entry at index {removable_entries}...{TextColor.RESET}")
                         CommandHandler.remove_entry_by_index(int(th.todo.index(removable_entries[0])))
@@ -267,7 +267,7 @@ class CommandHandler:
 
         th.save_todo_list()
 
-    def remove_expired_entries():
+    def remove_completed_and_expired_entries():
         '''
         Removes all fixed-deadline entries marked as completed or with
         expired due dates from the todo list.
