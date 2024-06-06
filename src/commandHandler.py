@@ -6,7 +6,6 @@
 '''
 
 import sys
-import os
 import re
 import argparse
 from datetime import date

@@ -1,11 +1,12 @@
 #!/bin/env bash
 
 BUILDARGS=""
-read -p "Clean PyInstaller cache and temp files before building? " CLEAN
-read -p "Skip confirmation dialogs? " NOCONFIRM
+
+read -p "Clean PyInstaller cache and temp files before building? [y/N] " CLEAN
+read -p "Skip confirmation dialogs? [y/N] " NOCONFIRM
 
 if [ $CLEAN == 'y' ]; then
-	BUILDARGS+=" --clean"
+	BUILDARGS+="--clean"
 fi
 
 if [ $NOCONFIRM == 'y' ]; then
@@ -13,7 +14,7 @@ if [ $NOCONFIRM == 'y' ]; then
 fi
 
 echo "Final command: pyinstaller $BUILDARGS --onedir --name colette src/main.py"
-read -p "Build Colette with this command? " BUILDWITHCMD
+read -p "Build Colette with this command? [y/n] " BUILDWITHCMD
 
 if [ $BUILDWITHCMD == 'y' ]; then
 	pyinstaller $BUILDARGS --onedir --name colette src/main.py

@@ -1,20 +1,17 @@
 #!/bin/env bash
 
 ROOTDIR=$(pwd)
+GENFILES=('todo.clt')
 
-read -p "Deleting todo.clt. Are you sure? [y/n] " CHOICE
+read -p "Deleting Colette-generated files. Are you sure? [y/n] " CHOICE
 
 if [ $CHOICE == 'y' ]; then
-	if [ -f 'todo.clt' ]; then
-		rm todo.clt
-	fi
-
-	for dir in */; do
-		cd $dir
-		if [ -f 'todo.clt' ]; then
-			rm todo.clt
+	for file in $GENFILES; do
+		if [ $(find ./ -iname $file | wc -l) -gt 0 ]; then
+			if [ -f $file ]; then
+				rm $file
+			fi
 		fi
-		cd $ROOTDIR
 	done
 elif [ $CHOICE == 'n' ]; then
 	echo "Deletion aborted."
