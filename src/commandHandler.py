@@ -131,7 +131,8 @@ class CommandHandler:
             - A full date in YYYY-MM-DD format (ex: 2024-12-31)
             - A month and day in MM-DD format (ex: 12-31)
             - A weekday either typed in full or abbreviated to its
-              first 3 letters (ex: Tuesday, Sat)
+              first 3 letters, optionally preceded by "next"
+              (ex: Tuesday, Sat, next Friday)
             - "today" or "tomorrow"
         The due date will be parsed based on its format and converted
         into a usable date internally. For tasks with non-fixed due

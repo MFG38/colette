@@ -17,6 +17,7 @@ class RegexDates:
     regex_full_date = re.compile(r"\d{4}([-]\d{2}){2}")
     regex_month_day = re.compile(r"\d{2}[-]\d{2}")
     regex_weekday = re.compile(r"mon(day?)?|tue(sday?)?|wed(nesday?)?|thu(rsday?)?|fri(day?)?|sat(urday?)?|sun(day?)?", re.I)
+    regex_next_weekday = re.compile(r"^\bnext\b (mon(day?)?|tue(sday?)?|wed(nesday?)?|thu(rsday?)?|fri(day?)?|sat(urday?)?|sun(day?)?)", re.I)
 
 def get_current_full_date():
     return dt.date.today()
@@ -80,6 +81,11 @@ def parse_deadline_from_string(deadline: str):
             tdelta = ((parse_weekday_from_string(deadline) - get_current_weekday()) + 7)
         else:
             tdelta = (parse_weekday_from_string(deadline) - get_current_weekday())
+    elif re.match(RegexDates.regex_next_weekday, deadline):
+        y = get_current_year()
+        m = get_current_month()
+        d = get_current_day()
+        tdelta = ((parse_weekday_from_string(deadline.split(" ").pop(1)) - get_current_weekday()) + 7)
     elif deadline == "today":
         y = get_current_year()
         m = get_current_month()

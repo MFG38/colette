@@ -19,7 +19,7 @@ The due date can be provided as one of the following:
 
 - A full date in YYYY-MM-DD format (**ex:** 2024-12-31)
 - A month and day in MM-DD format (**ex:** 12-31)
-- A weekday either typed in full or abbreviated to its first 3 letters (**ex:** Tuesday, Sat)
+- A weekday either typed in full or abbreviated to its first 3 letters, optionally preceded by "next" (**ex:** Tuesday, Sat, next Friday)
 - "today" or "tomorrow"
 
 The due date will be parsed based on its format and converted into a usable date internally. For tasks with non-fixed due dates, their due dates will get automatically updated upon launching Colette if the previous due date has passed.
