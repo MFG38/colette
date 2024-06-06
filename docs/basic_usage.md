@@ -19,6 +19,7 @@ Below is a list of the commands that Colette supports. See each command's dedica
 - [add](./cmd/add.md)
 - [a(uto)rem(ove)](./cmd/autoremove.md)
 - [clear](./cmd/clear.md)
+- [complete](./cmd/complete.md)
 - [debug](./cmd/debug.md)
 - [edit](./cmd/edit.md)
 - [exit/quit](./cmd/exit_quit.md)

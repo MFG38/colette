@@ -14,13 +14,14 @@ tdf_name = 'todo.clt'
 todo = []
 
 class TodoItem:
-    def __init__(self, desc, task_type, deadline):
+    def __init__(self, desc, task_type, deadline, status):
         self.desc = desc
         self.task_type = task_type
         self.deadline = deadline
+        self.status = status
 
-    def __getitem__(self, desc, task_type, deadline):
-        return self.desc, self.task_type, self.deadline
+    def __getitem__(self, desc, task_type, deadline, status):
+        return self.desc, self.task_type, self.deadline, self.status
 
 def get_todo_list():
     if os.path.exists(tdf_name):
@@ -32,7 +33,7 @@ def read_todo_list():
     with open(tdf_name, 'r') as tdf:
         for line in tdf:
             attribs = line.strip().split(",")
-            parsed_entry = TodoItem(str(attribs[0]), int(attribs[1]), str(attribs[2]))
+            parsed_entry = TodoItem(str(attribs[0]), int(attribs[1]), str(attribs[2]), int(attribs[3]))
             todo.append(parsed_entry)
 
 def save_todo_list():
@@ -40,9 +41,7 @@ def save_todo_list():
 
     with open(tdf_name, 'w') as tdf:
         for entry in todo:
-            tdf.write("{},{},{}\n".format(entry.desc, entry.task_type, entry.deadline))
-
-    #print(f"{tdf_name} saved in {wd}")
+            tdf.write("{},{},{},{}\n".format(entry.desc, entry.task_type, entry.deadline, entry.status))
 
 def parse_task_type(task_type: int):
     parsed_type = ""
@@ -70,5 +69,6 @@ if __name__ == "__main__":
             entry.desc,
             parse_task_type(entry.task_type),
             entry.deadline,
+            entry.status,
             sep=", "
         )

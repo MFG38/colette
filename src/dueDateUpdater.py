@@ -22,10 +22,16 @@ def update_deadlines():
 
         if entry.task_type == 1 and parse_date_from_string(entry.deadline) < dt.date.today():
             tdelta = 1
+            if entry.status > 0:
+                entry.status = 0
         elif entry.task_type == 2 and parse_date_from_string(entry.deadline) < dt.date.today():
             tdelta = 7
+            if entry.status > 0:
+                entry.status = 0
         elif entry.task_type == 3 and parse_date_from_string(entry.deadline) < dt.date.today():
             tdelta = calendar.monthrange(dtp.get_current_year(), dtp.get_current_month())
+            if entry.status > 0:
+                entry.status = 0
 
         entry.deadline = (dt.date(y, m, d) + dt.timedelta(days=tdelta))
 

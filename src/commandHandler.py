@@ -35,11 +35,12 @@ class CommandHandler:
                 print(
                     f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
                     f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
+                    f"{TextColor.COMPLETED}" if entry.status > 0 else "",
                     str(th.todo.index(entry)).ljust(justifiers[0]),
                     entry.desc.ljust(justifiers[1]),
                     th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                     entry.deadline,
-                    f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() else "",
+                    f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() or entry.status > 0 else "",
                     sep=""
                 )
 
@@ -62,11 +63,12 @@ class CommandHandler:
                     print(
                         f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
                         f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
+                        f"{TextColor.COMPLETED}" if entry.status > 0 else "",
                         str(th.todo.index(entry)).ljust(justifiers[0]),
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
-                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() else "",
+                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() or entry.status > 0 else "",
                         sep=""
                     )
                 print()
@@ -102,11 +104,15 @@ class CommandHandler:
         '''
         Clears the entire todo list. Use with caution!
         '''
-        if settings.debug_mode == True:
-            print(f"{TextColor.DEBUG}Clearing todo list...{TextColor.RESET}")
+        print(f"{TextColor.WARNING}WARNING: You are about to clear the ENTIRE todo list!{TextColor.RESET}")
+        confirm = input(f"{TextColor.PROMPT}Are you sure you want to do this? {TextColor.RESET}")
 
-        th.todo.clear()
-        th.save_todo_list()
+        if confirm == 'yes' or confirm == 'y':
+            if settings.debug_mode == True:
+                print(f"{TextColor.DEBUG}Clearing todo list...{TextColor.RESET}")
+
+            th.todo.clear()
+            th.save_todo_list()
 
     def add_entry(desc: str, task_type: int, deadline: str):
         '''
@@ -164,13 +170,31 @@ class CommandHandler:
             print(f"{TextColor.ERROR}Deadline can't be an empty string!{TextColor.RESET}")
             return
 
-        item = th.TodoItem(desc, task_type, dtp.parse_deadline_from_string(deadline))
+        item = th.TodoItem(desc, task_type, dtp.parse_deadline_from_string(deadline), 0)
         th.todo.append(item)
 
         th.save_todo_list()
 
         if settings.debug_mode == True:
             print(f"{TextColor.DEBUG}Added entry at index {len(th.todo) - 1}.{TextColor.RESET}")
+
+    def mark_task_as_completed(index: int):
+        '''
+        Marks a task as completed.
+        '''
+        if index not in range(0, len(th.todo)):
+            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.{TextColor.RESET}")
+            return
+        else:
+            if th.todo[index].status != 0:
+                print(f"{TextColor.WARNING}That task is already marked as completed!{TextColor.RESET}")
+                return
+            else:
+                th.todo[index].status = 1
+                th.save_todo_list()
+
+                if settings.debug_mode == True:
+                    print(f"{TextColor.DEBUG}Marked task completed at index {index}.{TextColor.RESET}")
 
     def remove_entry_by_index(index: int):
         '''
@@ -206,11 +230,12 @@ class CommandHandler:
                     print(
                         f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
                         f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
+                        f"{TextColor.COMPLETED}" if entry.status > 0 else "",
                         str(th.todo.index(entry)).ljust(justifiers[0]),
                         entry.desc.ljust(justifiers[1]),
                         th.parse_task_type(entry.task_type).ljust(justifiers[2]),
                         entry.deadline,
-                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() else "",
+                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() or entry.status > 0 else "",
                         sep=""
                     )
                 print()
@@ -244,11 +269,11 @@ class CommandHandler:
 
     def remove_expired_entries():
         '''
-        Removes all fixed-deadline entries with expired due dates
-        from the todo list.
+        Removes all fixed-deadline entries marked as completed or with
+        expired due dates from the todo list.
         '''
         for entry in th.todo:
-            if entry.task_type == 0 and entry.deadline < date.today():
+            if entry.task_type == 0 and (entry.deadline < date.today() or entry.status > 0):
                 th.todo.remove(th.todo[th.todo.index(entry)])
 
         th.save_todo_list()
@@ -322,6 +347,8 @@ class CommandHandler:
             sort - Sorts the todo list by a given key.
 
             add - Adds an entry to the todo list.
+
+            complete - Marks a task as completed.
 
             rem[ove] - Removes an entry from the todo list.
 

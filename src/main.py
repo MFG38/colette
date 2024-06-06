@@ -45,9 +45,13 @@ while True:
             t = TodoItem(
                 input(f"{TextColor.PROMPT}Description of the task: {TextColor.RESET}"),
                 input(f"{TextColor.PROMPT}Type of task ([f]ixed, [d]aily, [w]eekly, [m]onthly): {TextColor.RESET}"),
-                input(f"{TextColor.PROMPT}Deadline for the task: {TextColor.RESET}")
+                input(f"{TextColor.PROMPT}Deadline for the task: {TextColor.RESET}"),
+                0
             )
             ch.add_entry(t.desc, t.task_type, t.deadline)
+
+        case "complete":
+            ch.mark_task_as_completed(int(input(f"{TextColor.PROMPT}Index of entry to cross off: {TextColor.RESET}")))
 
         case "rem" | "remove":
             i = input(f"{TextColor.PROMPT}Index or description of entry to remove: {TextColor.RESET}")
