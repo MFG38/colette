@@ -4,9 +4,17 @@
 
 Here's a list of Colette's main features:
 
-- **Pure Python** - Colette is written in pure Python with zero dependencies.
+- **Pure Python** - Colette is written in pure Python with no dependencies other than Python itself.
 - **Simple but powerful list management** - Add, remove and edit entries, mark them as completed, sort your todo list etc.
 - **Easy storage** - Colette stores the todo list into a human-readable file that can be modified with a text editor if desired.
+
+## Installation
+
+As of right now, the only way to install Colette is to build it from source. Refer to the instructions below.
+
+## Usage
+
+Launch Colette with `./colette` and type `help` for a list of commands supported by Colette.
 
 ## Building Colette
 

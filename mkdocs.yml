@@ -16,6 +16,7 @@ theme:
 nav:
   - 'Main page': index.md
   - 'User guide':
+    - 'Installation': installation.md
     - 'Basic usage': basic_usage.md
     - 'Building Colette': building.md
   - 'Commands':
@@ -32,3 +33,6 @@ nav:
     - 'search': cmd/search.md
     - 'sort': cmd/sort.md
     - 'ver(sion)': cmd/version.md
+  - 'Technical details':
+    - 'todo.clt breakdown': technical/todo_clt.md
+    - 'Source code structure': technical/source_code_structure.md

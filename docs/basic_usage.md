@@ -8,9 +8,9 @@ As Colette is a terminal-based application, its main component is the command pr
 
 ## The todo file
 
-Colette stores entries in the todo list into a special file named **todo.clt**. This file effectively stores the todo list, and Colette will load the entries from the file into memory if its finds one. If Colette cannot find a todo.clt file upon launching, it will generate an empty one in the working directory.
+Colette stores entries in the todo list into a special file named **todo.clt**. This file effectively stores the todo list, and Colette will load the entries from the file into memory if it finds one in the working directory. If Colette cannot find a todo file upon launching, it will generate an empty one in the working directory.
 
-**NOTE:** The todo file is essentially a regular text file, storing the information that Colette needs to parse for each entry line by line. Colette does not encrypt this information in any manner, meaning that it is human-readable and rather easy to modify. That said, editing the todo file by hand is **NOT RECOMMENDED**, as doing so could lead to fatal errors.
+**NOTE:** The todo file is essentially a regular text file, storing the information that Colette needs to parse for each entry line by line. Colette does not encrypt this information in any manner, meaning that it is human-readable and rather easy to modify. That said, editing the todo file by hand is **NOT RECOMMENDED**, as doing so could lead to fatal errors. If you do wish to edit the todo file by hand, you will find a breakdown of its structure on the **[todo.clt breakdown](./technical/todo_clt.md)** page.
 
 ## Commands
 
