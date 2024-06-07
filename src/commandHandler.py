@@ -337,6 +337,8 @@ class CommandHandler:
         '''
         print("""
         Colette is a todo list manager that runs in the command line.
+        It aims to be quick and simple to use while providing enough
+        features to satisfy the needs of every command line lover.
 
         Colette accepts the following commands:
             list - Prints the todo list.
