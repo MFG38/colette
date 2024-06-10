@@ -82,6 +82,8 @@ class CommandHandler:
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.task_type)
         elif sort_key == "deadline":
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.deadline)
+        elif sort_key == "status":
+            th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.status)
         else:
             print(f"{TextColor.ERROR}{sort_key} is not a valid sort key!{TextColor.RESET}")
 
