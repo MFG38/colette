@@ -21,7 +21,9 @@ As you can see, each entry in the todo list is stored as plain text on its own l
 
 ### Description
 
-The first column of a line stores the description of an entry. This is stored as a plain-text string up to 60 characters long, terminated at the first occurrence of a comma. This is why a description cannot include a comma when entered from the interactive prompt of the **[add](../cmd/add.md)** command, as Colette will not parse the remaining information as intended and will likely crash. As of yet, there is no solution implemented to get around this limitation. If editing the todo file by hand, enclosing the description string in single quotes (') might work as a solution; however, this has been untested.
+The first column of a line stores the description of an entry. This is stored as a plain-text string up to 60 characters long.
+
+**NOTE:** Because the columns are separated by commas, a description cannot include a comma when entered from the interactive prompt of the **[add](../cmd/add.md)** command, as Colette will not parse the remaining information as intended and will likely crash. As of yet, there is no solution implemented to get around this limitation. If editing the todo file by hand, enclosing the description string in single quotes (') *might* work as a solution; however, this has been untested.
 
 ### Type
 

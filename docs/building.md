@@ -7,10 +7,13 @@
 For building from source, Colette has the following dependencies:
 
 * [Python](https://www.python.org/) 3.12.3 (Some older versions may be able to run Colette but have been untested. 3.10 is the bare minimum version.)
+* [pip](https://pypi.org/project/pip/) or [pipx](https://github.com/pypa/pipx)
 * [PyInstaller](https://pyinstaller.org/)
 * [mkdocs](https://www.mkdocs.org/)
 
-Install all of the dependencies as instructed for your operating system before building Colette.
+Install all of the dependencies as instructed for your operating system before building Colette.  You can run the following command to install the dependencies:
+
+    pip(x) install -r requirements.txt
 
 ## Running the build script
 

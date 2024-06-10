@@ -23,7 +23,7 @@ nav:
     - 'add': cmd/add.md
     - 'a(uto)rem(ove)': cmd/autoremove.md
     - 'clear': cmd/clear.md
-    - 'complete': cmd/complete.md
+    - 'complete/done': cmd/complete_done.md
     - 'debug': cmd/debug.md
     - 'edit': cmd/edit.md
     - 'exit/quit': cmd/exit_quit.md
@@ -32,6 +32,7 @@ nav:
     - 'rem(ove)': cmd/remove.md
     - 'search': cmd/search.md
     - 'sort': cmd/sort.md
+    - 'test': cmd/test.md
     - 'ver(sion)': cmd/version.md
   - 'Technical details':
     - 'todo.clt breakdown': technical/todo_clt.md

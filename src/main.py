@@ -30,6 +30,9 @@ while True:
         case "debug":
             ch.toggle_debug_mode()
 
+        case "test":
+            ch.toggle_test_mode()
+
         case "list":
             ch.print_list()
 
@@ -51,8 +54,8 @@ while True:
             )
             ch.add_entry(t.desc, t.task_type, t.deadline)
 
-        case "complete":
-            ch.mark_task_as_completed(int(input(f"{TextColor.PROMPT}Index of entry to cross off: {TextColor.RESET}")))
+        case "complete" | "done":
+            ch.mark_task_as_completed(int(input(f"{TextColor.PROMPT}Index of entry to mark as completed: {TextColor.RESET}")))
 
         case "rem" | "remove":
             i = input(f"{TextColor.PROMPT}Index or description of entry to remove: {TextColor.RESET}")

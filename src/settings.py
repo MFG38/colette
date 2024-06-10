@@ -5,3 +5,4 @@
 '''
 
 debug_mode = False
+test_mode = False

@@ -98,7 +98,8 @@ class CommandHandler:
         if settings.debug_mode == True:
             print(f"{TextColor.DEBUG}Sorting todo list by {sort_key}...{TextColor.RESET}")
 
-        th.save_todo_list()
+        if settings.test_mode == False:
+            th.save_todo_list()
 
     def clear_list():
         '''
@@ -112,6 +113,8 @@ class CommandHandler:
                 print(f"{TextColor.DEBUG}Clearing todo list...{TextColor.RESET}")
 
             th.todo.clear()
+
+        if settings.test_mode == False:
             th.save_todo_list()
 
     def add_entry(desc: str, task_type: int, deadline: str):
@@ -173,7 +176,8 @@ class CommandHandler:
         item = th.TodoItem(desc, task_type, dtp.parse_deadline_from_string(deadline), 0)
         th.todo.append(item)
 
-        th.save_todo_list()
+        if settings.test_mode == False:
+            th.save_todo_list()
 
         if settings.debug_mode == True:
             print(f"{TextColor.DEBUG}Added entry at index {len(th.todo) - 1}.{TextColor.RESET}")
@@ -191,7 +195,9 @@ class CommandHandler:
                 return
             else:
                 th.todo[index].status = 1
-                th.save_todo_list()
+
+                if settings.test_mode == False:
+                    th.save_todo_list()
 
                 if settings.debug_mode == True:
                     print(f"{TextColor.DEBUG}Marked task completed at index {index}.{TextColor.RESET}")
@@ -208,7 +214,8 @@ class CommandHandler:
                 print(f"{TextColor.DEBUG}Removing entry at index {index}...{TextColor.RESET}")
             th.todo.remove(th.todo[index])
 
-        th.save_todo_list()
+        if settings.test_mode == False:
+            th.save_todo_list()
 
     def remove_entry_by_description(desc: str):
         '''
@@ -265,7 +272,8 @@ class CommandHandler:
                 print(f"No results returned with the search term(s) '{desc}'.")
                 print()
 
-        th.save_todo_list()
+        if settings.test_mode == False:
+            th.save_todo_list()
 
     def remove_completed_and_expired_entries():
         '''
@@ -276,7 +284,8 @@ class CommandHandler:
             if entry.task_type == 0 and (entry.deadline < date.today() or entry.status > 0):
                 th.todo.remove(th.todo[th.todo.index(entry)])
 
-        th.save_todo_list()
+        if settings.test_mode == False:
+            th.save_todo_list()
 
         if settings.debug_mode == True:
             print(f"{TextColor.DEBUG}{TextColor.RESET}")
@@ -325,7 +334,8 @@ class CommandHandler:
         else:
             th.todo[index].deadline = dtp.parse_deadline_from_string(new_deadline)
 
-        th.save_todo_list()
+        if settings.test_mode == False:
+            th.save_todo_list()
 
         if settings.debug_mode == True:
             print(f"{TextColor.DEBUG}Edited entry at index {index}.{TextColor.RESET}")
@@ -388,3 +398,10 @@ class CommandHandler:
         '''
         settings.debug_mode = not settings.debug_mode
         print(f"{TextColor.DEBUG}Debug mode is now {settings.debug_mode}.{TextColor.RESET}")
+
+    def toggle_test_mode():
+        '''
+        Toggles test mode.
+        '''
+        settings.test_mode = not settings.test_mode
+        print(f"{TextColor.DEBUG}Test mode is now {settings.test_mode}.{TextColor.RESET}")
