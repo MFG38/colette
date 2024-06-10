@@ -7,7 +7,6 @@
 
 import sys
 import re
-import argparse
 from datetime import date, timedelta
 
 import todoHandler as th
@@ -340,7 +339,7 @@ class CommandHandler:
 
             add - Adds an entry to the todo list.
 
-            complete - Marks a task as completed.
+            complete/done - Marks a task as completed.
 
             rem[ove] - Removes an entry from the todo list.
 
@@ -355,7 +354,15 @@ class CommandHandler:
 
             ver[sion] - Prints Colette's version information.
 
-            debug - Toggles debug mode.
+            debug - Toggles debug mode. Colette's debug mode
+            effectively acts like a verbose mode, printing additional
+            messages in the terminal with extra information about
+            what the program is doing internally.
+
+            test - Toggles test mode. When test mode is on, any changes
+            made to entries will remain strictly in memory and will not
+            be written to the todo.clt file. Useful when you want to
+            test Colette without messing up your todo.clt file.
 
             exit/quit - Quits Colette.
         """)

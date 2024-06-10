@@ -14,7 +14,7 @@ As of right now, the only way to install Colette is to build it from source. Ref
 
 ## Usage
 
-Launch Colette with either `./colette` or `python src/main.py` and type `help` for a list of commands supported by Colette.
+Launch Colette with either `./colette` (requires building first) or `python src/main.py` and type `help` for a list of commands supported by Colette.
 
 ## Building Colette
 
