@@ -5,7 +5,7 @@
 '''
 
 header_titles = ["INDEX", "TASK DESCRIPTION", "TYPE", "DUE DATE"]
-justifiers = [8, 64, 8, 12]
+justifiers = [8, 64, 8, 10]
 header_length = sum(justifiers)
 
 cmd_yes = ["y", "yes"]

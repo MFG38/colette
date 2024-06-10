@@ -32,7 +32,7 @@ class TextColor:
     DEBUG       = CYAN
     PROMPT      = GREEN
     COMPLETED   = GREEN
-    DUETODAY    = BLACK + REDB
+    DUESOON     = BLACK + REDB
     EXPIRED     = BLACK + PURPLEB
     REMINDER    = YELLOW
 

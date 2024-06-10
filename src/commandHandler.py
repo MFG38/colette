@@ -8,7 +8,7 @@
 import sys
 import re
 import argparse
-from datetime import date
+from datetime import date, timedelta
 
 import todoHandler as th
 import dateParser as dtp
@@ -16,6 +16,20 @@ import settings
 from textColors import *
 from version import *
 from misc import *
+
+def print_formatted_entries(src_list: list):
+    for entry in src_list:
+        print(
+            f"{TextColor.DUESOON}" if entry.deadline <= (dtp.get_current_full_date() + timedelta(days=1)) else "",
+            f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
+            f"{TextColor.COMPLETED}" if entry.status > 0 else "",
+            str(th.todo.index(entry)).ljust(justifiers[0]),
+            entry.desc.ljust(justifiers[1]),
+            th.parse_task_type(entry.task_type).ljust(justifiers[2]),
+            entry.deadline,
+            f"{TextColor.RESET}" if entry.deadline <= (dtp.get_current_full_date() + timedelta(days=1)) or entry.status > 0 else "",
+            sep=""
+        )
 
 class CommandHandler:
     def __init__(self, cmd: str):
@@ -31,19 +45,7 @@ class CommandHandler:
             print(f"{''.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}")
             print("-" * header_length)
 
-            for entry in th.todo:
-                print(
-                    f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
-                    f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
-                    f"{TextColor.COMPLETED}" if entry.status > 0 else "",
-                    str(th.todo.index(entry)).ljust(justifiers[0]),
-                    entry.desc.ljust(justifiers[1]),
-                    th.parse_task_type(entry.task_type).ljust(justifiers[2]),
-                    entry.deadline,
-                    f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() or entry.status > 0 else "",
-                    sep=""
-                )
-
+            print_formatted_entries(th.todo)
             print()
 
     def search_list(search_key: str):
@@ -59,18 +61,7 @@ class CommandHandler:
                     found_entries.append(entry)
 
             if len(found_entries) > 0:
-                for entry in found_entries:
-                    print(
-                        f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
-                        f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
-                        f"{TextColor.COMPLETED}" if entry.status > 0 else "",
-                        str(th.todo.index(entry)).ljust(justifiers[0]),
-                        entry.desc.ljust(justifiers[1]),
-                        th.parse_task_type(entry.task_type).ljust(justifiers[2]),
-                        entry.deadline,
-                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() or entry.status > 0 else "",
-                        sep=""
-                    )
+                print_formatted_entries(found_entries)
                 print()
             else:
                 print(f"No results returned with the search term(s) '{search_key}'.")
@@ -233,18 +224,7 @@ class CommandHandler:
                     removable_entries.append(entry)
 
             if len(removable_entries) > 0:
-                for entry in removable_entries:
-                    print(
-                        f"{TextColor.DUETODAY}" if entry.deadline == dtp.get_current_full_date() else "",
-                        f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
-                        f"{TextColor.COMPLETED}" if entry.status > 0 else "",
-                        str(th.todo.index(entry)).ljust(justifiers[0]),
-                        entry.desc.ljust(justifiers[1]),
-                        th.parse_task_type(entry.task_type).ljust(justifiers[2]),
-                        entry.deadline,
-                        f"{TextColor.RESET}" if entry.deadline <= dtp.get_current_full_date() or entry.status > 0 else "",
-                        sep=""
-                    )
+                print_formatted_entries(removable_entries)
                 print()
 
                 if len(removable_entries) == 1:
