@@ -18,20 +18,22 @@ Here's a list of Colette's main features:
 
     `PATH=$PATH:/path/to/extracted/binary`
 
+Once you have performed the steps above, you can launch Colette by simply typing `colette` into the terminal.
+
 ### From source
 
 Refer to the instructions in the **[Building Colette](#building-colette)** section.
 
 ## Usage
 
-Launch Colette with either `./colette` (requires building first) or `python src/main.py` and type `help` for a list of commands supported by Colette.
+Launch Colette and type `help` for a list of commands supported by Colette.
 
 ## Building Colette
 
 ### Dependencies
 
 For building from source, Colette has the following dependencies:
-* [Python](https://www.python.org/) 3.12.3 (Some older versions may be able to run Colette but have been untested. 3.10 is the bare minimum version.)
+* [Python](https://www.python.org/) 3.10 or newer version (3.11.2 is the lowest tested version. Latest version recommended.)
 * [pip](https://pypi.org/project/pip/) or [pipx](https://github.com/pypa/pipx)
 * [PyInstaller](https://pyinstaller.org/)
 * [mkdocs](https://www.mkdocs.org/)

@@ -10,6 +10,8 @@
 
     `PATH=$PATH:/path/to/extracted/binary`
 
+Once you have performed the steps above, you can launch Colette by simply typing `colette` into the terminal.
+
 ## From source
 
 Refer to the instructions on the **[Building Colette](./building.md)** page.
