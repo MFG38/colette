@@ -14,7 +14,9 @@ Here's a list of Colette's main features:
 
 ## Installation and usage
 
-As of right now, the only way to install Colette is to build it from source. Refer to the instructions on the **[Building Colette](building.md)** page.
+To install Colette from a downloaded .zip file, refer to instructions on the **[Installation](./installation.md)** page.
+
+To build and install Colette from source, refer to the instructions on the **[Building Colette](building.md)** page.
 
 Usage instructions for Colette are covered on the **[Basic usage](./basic_usage.md)** page.
 

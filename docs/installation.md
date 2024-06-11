@@ -2,6 +2,14 @@
 
 ---
 
-As of right now, the only way to install Colette is to build it from source. Refer to the instructions on the **[Building Colette](building.md)** page.
+## From the archive
 
-After building, you can copy or move the compiled executable to a directory of your choice, eg. **~/.local/bin/**.
+1. Download **colette-*.zip** from the Releases section of the GitHub repository.
+2. Unzip the entire contents of colette-*.zip to a folder of your choice.
+3. **(OPTIONAL)** Add the following line to your shell configuration file:
+
+    `alias colette='cd /path/to/extracted/binary && ./colette'`
+
+## From source
+
+Refer to the instructions on the **[Building Colette](./building.md)** page.

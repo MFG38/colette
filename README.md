@@ -10,7 +10,17 @@ Here's a list of Colette's main features:
 
 ## Installation
 
-As of right now, the only way to install Colette is to build it from source. Refer to the instructions below.
+### From the archive
+
+1. Download **colette-*.zip** from the Releases section of the GitHub repository.
+2. Unzip the entire contents of colette-*.zip to a folder of your choice.
+3. **(OPTIONAL)** Add the following line to your shell configuration file:
+
+    `alias colette='cd /path/to/extracted/binary && ./colette'`
+
+### From source
+
+Refer to the instructions in the **[Building Colette](#building-colette)** section.
 
 ## Usage
 
