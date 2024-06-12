@@ -34,7 +34,7 @@ Launch Colette and type `help` for a list of commands supported by Colette.
 ### Dependencies
 
 For building from source, Colette has the following dependencies:
-* [Python](https://www.python.org/) 3.10 or newer version (3.11.2 is the lowest tested version. Latest version recommended.)
+* [Python](https://www.python.org/) 3.11 or newer version (3.11.2 is the lowest tested version. Latest version recommended.)
 * [pip](https://pypi.org/project/pip/) or [pipx](https://github.com/pypa/pipx)
 * [PyInstaller](https://pyinstaller.org/)
 * [mkdocs](https://www.mkdocs.org/)

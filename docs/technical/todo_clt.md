@@ -12,10 +12,12 @@ todo.clt is essentially a regular text file but with a unique file extension. It
 
 Below is a sample of what the contents of todo.clt might look like:
 
-    pay rent,3,2024-06-15,0
-    send important email,0,2024-06-30,0
-    send monthly report,0,2024-05-31,1
-    brush teeth,1,2024-06-08,1
+```
+pay rent,3,2024-06-15,0
+send important email,0,2024-06-30,0
+send monthly report,0,2024-05-31,1
+brush teeth,1,2024-06-08,1
+```
 
 As you can see, each entry in the todo list is stored as plain text on its own line in the file. Each entry has four "columns" of information separated by commas; this information is what Colette parses and displays when the **[list](../cmd/list.md)** command is used. The four columns, in order from left to right, are the **description**, **type**, **due date** and **status** of each entry.
 

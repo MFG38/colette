@@ -17,13 +17,16 @@ read_todo_list()
 get_config_file()
 read_config_file()
 
+if get_option('start_in_debug_mode') == True:
+    ch.toggle_debug_mode()
+if get_option('start_in_test_mode') == True:
+    ch.toggle_test_mode()
+
 update_deadlines()
 
-print(parsed_conf.get('autoremove_old_entries') == True)
-
-if parsed_conf.get('autoremove_old_entries') == True:
+if get_option('autoremove_old_entries') == True:
     ch.remove_completed_and_expired_entries()
-if parsed_conf.get('enable_reminders') is None or parsed_conf.get('enable_reminders') == True:
+if get_option('enable_reminders') is None or get_option('enable_reminders') == True:
     print_reminders()
 
 while True:
