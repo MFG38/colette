@@ -17,17 +17,22 @@ read_todo_list()
 get_config_file()
 read_config_file()
 
-if get_option('start_in_debug_mode') == True:
-    ch.toggle_debug_mode()
-if get_option('start_in_test_mode') == True:
-    ch.toggle_test_mode()
+if get_config_file() == True:
+    if get_option('start_in_debug_mode') == True:
+        ch.toggle_debug_mode()
+    if get_option('start_in_test_mode') == True:
+        ch.toggle_test_mode()
+    if get_option('autoremove_old_entries') == True:
+        ch.remove_completed_and_expired_entries()
+    if get_option('enable_reminders') is None or get_option('enable_reminders') == True:
+        print_reminders()
 
 update_deadlines()
 
-if get_option('autoremove_old_entries') == True:
-    ch.remove_completed_and_expired_entries()
-if get_option('enable_reminders') is None or get_option('enable_reminders') == True:
-    print_reminders()
+#if get_option('autoremove_old_entries') == True:
+#    ch.remove_completed_and_expired_entries()
+#if get_option('enable_reminders') is None or get_option('enable_reminders') == True:
+#    print_reminders()
 
 while True:
     cmd = input("cmd> ").split(" ")

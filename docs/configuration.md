@@ -10,7 +10,7 @@ If you wish to configure Colette, create a file named **colette.toml** in the wo
 
 ### autoremove_old_entries (default: false)
 
-When this setting is set to `true`, Colette will (allegedly) automatically remove completed fixed-deadline tasks or fixed-deadline tasks with passed due dates from the todo list on launch.
+When this setting is set to `true`, Colette will automatically remove completed fixed-deadline tasks or fixed-deadline tasks with passed due dates from the todo list on launch.
 
 ### enable_reminders (default: true)
 
