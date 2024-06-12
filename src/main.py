@@ -10,12 +10,21 @@ from textColors import *
 from dueDateUpdater import *
 from reminder import *
 from misc import *
+from configHandler import *
 
 get_todo_list()
 read_todo_list()
+get_config_file()
+read_config_file()
 
 update_deadlines()
-print_reminders()
+
+print(parsed_conf.get('autoremove_old_entries') == True)
+
+if parsed_conf.get('autoremove_old_entries') == True:
+    ch.remove_completed_and_expired_entries()
+if parsed_conf.get('enable_reminders') is None or parsed_conf.get('enable_reminders') == True:
+    print_reminders()
 
 while True:
     cmd = input("cmd> ").split(" ")

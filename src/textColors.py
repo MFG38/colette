@@ -4,6 +4,8 @@
     Defines text colors for Colette's terminal.
 '''
 
+import configHandler as cnf
+
 class TextColor:
     BLACK       = "\033[30m"
     RED         = "\033[31m"
@@ -25,7 +27,6 @@ class TextColor:
 
     RESET       = "\033[0m"
 
-    # These I'll probably make configurable at some point.
     DEFAULT     = WHITE
     ERROR       = RED
     WARNING     = YELLOW

@@ -21,6 +21,7 @@ nav:
   - 'User guide':
     - 'Installation': installation.md
     - 'Basic usage': basic_usage.md
+    - 'Configuration': configuration.md
     - 'Building Colette': building.md
   - 'Commands':
     - 'add': cmd/add.md
