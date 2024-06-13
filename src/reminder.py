@@ -12,8 +12,6 @@ import dateParser as dtp
 import configHandler as cnf
 from textColors import *
 from dueDateUpdater import *
-# Worth noting about the dueDateUpdater import: parse_date_from_string() is
-# only used for testing purposes within this module itself.
 
 def print_reminders():
     tasks_due_today = []
@@ -21,11 +19,11 @@ def print_reminders():
     tasks_with_passed_deadlines = []
 
     for entry in th.todo:
-        if entry.deadline == dtp.get_current_full_date():
+        if parse_date_from_string(entry.deadline) == dtp.get_current_full_date():
             tasks_due_today.append(entry.desc)
-        elif entry.deadline == (dtp.get_current_full_date() + timedelta(days=1)):
+        elif parse_date_from_string(entry.deadline) == (dtp.get_current_full_date() + timedelta(days=1)):
             tasks_due_tomorrow.append(entry.desc)
-        elif entry.deadline < dtp.get_current_full_date():
+        elif parse_date_from_string(entry.deadline) < dtp.get_current_full_date():
             tasks_with_passed_deadlines.append(entry.desc)
 
     if len(tasks_due_today) > 0 and len(tasks_due_tomorrow) == 0:

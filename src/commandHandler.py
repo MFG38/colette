@@ -12,6 +12,7 @@ from datetime import date, timedelta
 import todoHandler as th
 import dateParser as dtp
 import settings
+from dueDateUpdater import *
 from textColors import *
 from version import *
 from misc import *
@@ -262,7 +263,7 @@ class CommandHandler:
         expired due dates from the todo list.
         '''
         for entry in th.todo:
-            if entry.task_type == 0 and (entry.deadline < date.today() or entry.status > 0):
+            if entry.task_type == 0 and (parse_date_from_string(entry.deadline) < date.today() or entry.status > 0):
                 th.todo.remove(th.todo[th.todo.index(entry)])
 
         if settings.test_mode == False:

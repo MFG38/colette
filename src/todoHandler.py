@@ -33,7 +33,7 @@ def read_todo_list():
     with open(tdf_name, 'r') as tdf:
         for line in tdf:
             attribs = line.strip().split(",")
-            parsed_entry = TodoItem(str(attribs[0]), int(attribs[1]), str(attribs[2]), int(attribs[3]))
+            parsed_entry = TodoItem(str(attribs[0]), int(attribs[1]), attribs[2], int(attribs[3]))
             todo.append(parsed_entry)
 
 def save_todo_list():
