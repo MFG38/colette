@@ -27,6 +27,7 @@ if not get_config_file() or (get_config_file() and (get_option('enable_reminders
     print_reminders()
 
 update_deadlines()
+save_todo_list()
 
 while True:
     cmd = input("cmd> ").split(" ")
