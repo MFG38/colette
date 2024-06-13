@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 ROOTDIR=$(pwd)
-GENFILES=('todo.clt')
+GENFILES=('todo.clt colette.toml')
 
 read -p "Deleting Colette-generated files. Are you sure? [y/n] " CHOICE
 

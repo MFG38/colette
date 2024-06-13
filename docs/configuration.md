@@ -2,9 +2,9 @@
 
 ---
 
-Colette is configurable through a TOML file. TOML is a simple, human-readable markup language used by various pieces of software for their configuration, Colette included. See the [TOML website](https://toml.io/en/) for more information and a syntax reference.
+Colette is configurable with a TOML file. TOML is a simple, human-readable markup language used by various pieces of software for their configuration, Colette included. See the [TOML website](https://toml.io/en/) for more information and a syntax reference.
 
-Colette does not generate a configuration file by itself; rather, the user can create a configuration file for Colette if they wish to change the settings. If you wish to configure Colette, create a file named **colette.toml** in the directory where Colette is located and add any settings you wish to modify into that file. See [Available settings](#available-settings) for a list of configuration options.
+Colette does not generate a configuration file by itself; rather, the user can create a configuration file for Colette if they wish to change the default settings. If you wish to configure Colette, create a file named **colette.toml** in the directory where Colette is located and add any settings you wish to modify into that file. See [Available settings](#available-settings) for a list of configuration options.
 
 ## Available settings
 
@@ -62,7 +62,7 @@ The following options are available for configuring the colors in Colette. Enclo
 
 The `RESET` color code resets all colors to the default.
 
-```
+```text
 BLACK
 RED
 GREEN

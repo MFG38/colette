@@ -28,11 +28,6 @@ if not get_config_file() or (get_config_file() and (get_option('enable_reminders
 
 update_deadlines()
 
-#if get_option('autoremove_old_entries') == True:
-#    ch.remove_completed_and_expired_entries()
-#if get_option('enable_reminders') is None or get_option('enable_reminders') == True:
-#    print_reminders()
-
 while True:
     cmd = input("cmd> ").split(" ")
 
