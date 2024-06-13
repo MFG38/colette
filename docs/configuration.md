@@ -14,7 +14,7 @@ When this setting is set to `true`, Colette will automatically remove completed 
 
 ### debug_msg_color (default: CYAN)
 
-Sets the display color(s) for error messages. See [Color options](#color-options) for available values.
+Sets the display color(s) for debug messages. See [Color options](#color-options) for available values.
 
 ### enable_reminders (default: true)
 
