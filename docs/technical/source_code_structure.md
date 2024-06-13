@@ -10,6 +10,10 @@ Below is a list of the files in the **src/** directory and their functionality.
 
 Defines all of the functions used by the commands in Colette's CLI.
 
+### configHandler.py
+
+Handles reading information from a configuration file if one is found in the working directory on launch.
+
 ### dateParser.py
 
 Handles parsing the date from the user's input in case they give something like "tomorrow" or a weekday as the input and converting it into a usable date. Mostly used by the **[add](../cmd/add.md)** and **[edit](../cmd/edit.md)** commands.

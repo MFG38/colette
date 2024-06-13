@@ -2,9 +2,9 @@
 
 ---
 
-Colette is configurable through a TOML file. See the [TOML website](https://toml.io/en/) for more information and a syntax reference.
+Colette is configurable through a TOML file. TOML is a simple, human-readable markup language used by various pieces of software for their configuration, Colette included. See the [TOML website](https://toml.io/en/) for more information and a syntax reference.
 
-If you wish to configure Colette, create a file named **colette.toml** in the working directory and add any settings you wish to modify into that file. See **[Available settings](#available-settings)** for a list of configuration options.
+Colette does not generate a configuration file by itself; rather, the user can create a configuration file for Colette if they wish to change the settings. If you wish to configure Colette, create a file named **colette.toml** in the directory where Colette is located and add any settings you wish to modify into that file. See [Available settings](#available-settings) for a list of configuration options.
 
 ## Available settings
 
@@ -12,9 +12,25 @@ If you wish to configure Colette, create a file named **colette.toml** in the wo
 
 When this setting is set to `true`, Colette will automatically remove completed fixed-deadline tasks or fixed-deadline tasks with passed due dates from the todo list on launch.
 
+### debug_msg_color (default: CYAN)
+
+Sets the display color(s) for error messages. See [Color options](#color-options) for available values.
+
 ### enable_reminders (default: true)
 
 By default, Colette prints due date reminders for tasks with due dates either today or tomorrow. Add this setting to your configuration file and set it to `false` to disable due date reminders.
+
+### error_msg_color (default: RED)
+
+Sets the display color(s) for error messages. See [Color options](#color-options) for available values.
+
+### prompt_msg_color (default: GREEN)
+
+Sets the display color(s) for the text in interactive prompts. See [Color options](#color-options) for available values.
+
+### reminder_msg_color (default: YELLOW)
+
+Sets the display color(s) for task reminder messages. See [Color options](#color-options) for available values.
 
 ### start_in_debug_mode (default: false)
 
@@ -24,13 +40,27 @@ When this setting is `true`, Colette will automatically start in debug mode. Col
 
 When this setting is `true`, Colette will automatically start in test mode. When test mode is on, any changes made to entries will remain strictly in memory and will not be written to the todo.clt file. Useful when you want to test Colette without messing up your todo.clt file.
 
+### task_completed_color (default: GREEN)
+
+Sets the display color(s) for completed tasks in the output of the **[list](./cmd/list.md)** command. See [Color options](#color-options) for available values.
+
+### task_due_soon_color (default: BLACK + REDB)
+
+Sets the display color(s) for tasks with due dates either today or tomorrow in the output of the **[list](./cmd/list.md)** command. See [Color options](#color-options) for available values.
+
+### task_expired_color (default: BLACK + PURPLEB)
+
+Sets the display color(s) for tasks with passed due dates in the output of the **[list](./cmd/list.md)** command. See [Color options](#color-options) for available values.
+
+### warning_msg_color (default: YELLOW)
+
+Sets the display color(s) for warning messages. See [Color options](#color-options) for available values.
+
 ## Color options
 
-The following options are available for configuring the colors in Colette. Options without B at the end set the color for the text itself, while options with B at the end set the background color. Text and background colors can be combined by concatenating them with a + symbol (**ex:** `BLACK + GREENB`).
+The following options are available for configuring the colors in Colette. Enclose them in either single quotes (') or double quotes (") when setting them in colette.toml. Options without B at the end set the color for the text itself, while options with B at the end set the background color. Text and background colors can be combined by concatenating them with a + symbol (**ex:** `"BLACK + GREENB"`).
 
 The `RESET` color code resets all colors to the default.
-
-**NOTE:** This feature is non-functional and fatal for the time being.
 
 ```
 BLACK
