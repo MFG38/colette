@@ -30,6 +30,7 @@ class TextColor:
 
     RESET       = "\033[0m"
 
+    NULL        = ""
     DEFAULT     = WHITE
     ERROR       = eval(f"{get_option('error_msg_color')}") if get_config_file() and get_option('error_msg_color') is not None else RED
     WARNING     = eval(f"{get_option('warning_msg_color')}") if get_config_file() and get_option('warning_msg_color') is not None else YELLOW

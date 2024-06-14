@@ -10,7 +10,7 @@ Colette does not generate a configuration file by itself; rather, the user can c
 
 ### autoremove_old_entries (default: false)
 
-When this setting is set to `true`, Colette will automatically remove completed fixed-deadline tasks or fixed-deadline tasks with passed due dates from the todo list on launch.
+When this setting is `true`, Colette will automatically remove completed fixed-deadline tasks or fixed-deadline tasks with passed due dates from the todo list on launch.
 
 ### debug_msg_color (default: CYAN)
 
@@ -59,6 +59,8 @@ Sets the display color(s) for warning messages. See [Color options](#color-optio
 ## Color options
 
 The following options are available for configuring the colors in Colette. Enclose them in either single quotes (') or double quotes (") when setting them in colette.toml. Options without B at the end set the color for the text itself, while options with B at the end set the background color. Text and background colors can be combined by concatenating them with a + symbol (**ex:** `"BLACK + GREENB"`).
+
+Text colorization can also be disabled by passing `NULL` as a value for a color setting.
 
 The `RESET` color code resets all colors to the default.
 

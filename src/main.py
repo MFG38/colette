@@ -32,7 +32,7 @@ save_todo_list()
 while True:
     cmd = input("cmd> ").split(" ")
 
-    match cmd[0]:
+    match cmd[0].lower():
         case "help":
             ch.print_help()
 

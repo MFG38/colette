@@ -4,7 +4,7 @@
 
 ## From the archive
 
-1. Download **colette-*.zip** from the Releases section of the GitHub repository.
+1. Download **colette-*.zip** from the [Releases](https://github.com/MFG38/colette/releases) section of the GitHub repository.
 2. Unzip the entire contents of colette-*.zip to a folder of your choice.
 3. Add the following line to your shell configuration file:
 
