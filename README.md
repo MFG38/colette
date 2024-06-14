@@ -11,7 +11,7 @@ Here's a list of Colette's main features:
 
 ## Installation
 
-### From the archive
+### From the archive (Linux)
 
 1. Download **colette-*.zip** from the Releases section of the GitHub repository.
 2. Unzip the entire contents of colette-*.zip to a folder of your choice.
@@ -21,7 +21,7 @@ Here's a list of Colette's main features:
 
 Once you have performed the steps above, you can launch Colette by simply typing `colette` into the terminal.
 
-### From source
+### From source (Linux / macOS / Windows)
 
 Refer to the instructions in the **[Building Colette](#building-colette)** section.
 
@@ -62,6 +62,27 @@ After building Colette, you can run it by navigating into one of the directories
     ./colette
 
 You can also run Colette without building it by running the **main.py** file from the **src/** directory.
+
+## Compatibility
+
+### For building
+
+|OS (Build system)      |Buildable?     |Supported? |Known issues           |
+|-----------------------|---------------|-----------|-----------------------|
+|**Linux**              |Yes            |Yes        |None                   |
+|**macOS**              |Untested       |Partially  |None                   |
+|**Windows**            |Yes            |No         |None                   |
+|**Windows (Cygwin)**   |Untested       |No         |None                   |
+
+### For running
+
+**NOTE:** The table below contains only the terminals Colette has been tested in. If you don't see your terminal in the table, Colette has likely not been tested in it. Compatibility is not guaranteed in this case.
+
+|Terminal                   |Runnable?      |Supported? |Known issues           |
+|---------------------------|---------------|-----------|-----------------------|
+|**PowerShell**             |Yes            |No         |Text color codes render as plain text on Windows. Setting text colors to NULL in colette.toml is a suooprted workaround.     |
+|**Windows Command Prompt** |Yes            |No         |Text color codes render as plain text. Setting text colors to NULL in colette.toml is a supported workaround.     |
+|**xterm**                  |Yes            |Yes        |None                   |
 
 ## License
 

@@ -2,7 +2,7 @@
 
 ---
 
-## From the archive
+## From the archive (Linux)
 
 1. Download **colette-*.zip** from the [Releases](https://github.com/MFG38/colette/releases) section of the GitHub repository.
 2. Unzip the entire contents of colette-*.zip to a folder of your choice.
@@ -12,6 +12,6 @@
 
 Once you have performed the steps above, you can launch Colette by simply typing `colette` into the terminal.
 
-## From source
+## From source (Linux / macOS / Windows)
 
 Refer to the instructions on the **[Building Colette](./building.md)** page.
