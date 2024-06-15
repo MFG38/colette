@@ -80,7 +80,7 @@ You can also run Colette without building it by running the **main.py** file fro
 
 |Terminal                   |Runnable?      |Supported? |Known issues           |
 |---------------------------|---------------|-----------|-----------------------|
-|**PowerShell**             |Yes            |No         |Text color codes render as plain text on Windows. Setting text colors to NULL in colette.toml is a suooprted workaround.     |
+|**PowerShell**             |Yes            |No         |Text color codes render as plain text on Windows. Setting text colors to NULL in colette.toml is a supported workaround.     |
 |**Windows Command Prompt** |Yes            |No         |Text color codes render as plain text. Setting text colors to NULL in colette.toml is a supported workaround.     |
 |**xterm**                  |Yes            |Yes        |None                   |
 
