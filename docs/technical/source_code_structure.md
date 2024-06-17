@@ -129,6 +129,7 @@ class       TextColor
     var     CYANB
     var     WHITEB
     var     RESET
+    var     NULL
     var     DEFAULT
     var     ERROR
     var     WARNING
@@ -180,6 +181,10 @@ Colette's Git configuration files.
 
 Shell script used for building Colette and its documentation. Invokes `pyinstaller` and `mkdocs` internally.
 
+### CHANGELOG.md
+
+Colette's changelog.
+
 ### clean-cache.sh
 
 Shell script used for cleaning and deleting \_\_pycache\_\_ if it is found in the **src/** directory.
@@ -207,3 +212,7 @@ The readme file.
 ### requirements.txt
 
 Text file containing the names of the `pip` packages that Colette needs for its build workflow. Install them with `pip install -r requirements.txt` before building Colette.
+
+### update-docs-changelog.sh
+
+Shell script used for making a copy of CHANGELOG.md in the **docs/** directory. build.sh also calls this script in the documentation build stage before invoking `mkdocs`.

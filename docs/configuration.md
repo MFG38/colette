@@ -62,8 +62,6 @@ The following options are available for configuring the colors in Colette. Enclo
 
 Text colorization can also be disabled by passing `NULL` as a value for a color setting.
 
-The `RESET` color code resets all colors to the default.
-
 ```text
 BLACK
 RED
@@ -84,5 +82,4 @@ CYANB
 WHITEB
 
 NULL
-RESET
 ```
