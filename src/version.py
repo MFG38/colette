@@ -5,5 +5,5 @@
 '''
 
 version_num = "v0.2.0-pre"
-version_date = "2024-06-13"
+version_date = "2024-06-17"
 full_version_info = f"Colette {version_num}, {version_date}\n"
