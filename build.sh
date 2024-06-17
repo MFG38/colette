@@ -29,6 +29,7 @@ fi
 read -p "Rebuild documentation? [y/n]" RBDOCS
 
 if [ $RBDOCS == 'y' ]; then
+	sh update-docs-changelog.sh
 	mkdocs build
 
 	if [ $? -ne 0 ]; then

@@ -70,3 +70,6 @@ site/
 # Files generated and/or used by Colette
 todo.clt
 colette.toml
+
+# Duplicate changelog in docs/
+docs/changelog.md

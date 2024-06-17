@@ -41,3 +41,4 @@ nav:
   - 'Technical details':
     - 'todo.clt breakdown': technical/todo_clt.md
     - 'Source code structure': technical/source_code_structure.md
+  - 'Changelog': changelog.md
