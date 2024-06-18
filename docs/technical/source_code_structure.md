@@ -216,3 +216,7 @@ Text file containing the names of the `pip` packages that Colette needs for its 
 ### update-docs-changelog.sh
 
 Shell script used for making a copy of CHANGELOG.md in the **docs/** directory. build.sh also calls this script in the documentation build stage before invoking `mkdocs`.
+
+### VERSION
+
+Text file containing Colette's version number. pack-dist.sh reads the information from this file into a variable and uses it to package Colette with the proper version number.
