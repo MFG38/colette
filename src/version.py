@@ -4,6 +4,6 @@
     Stores Colette's version information.
 '''
 
-version_num = "v0.2.0-pre"
-version_date = "2024-06-17"
+version_num = "v0.2.0"
+version_date = "2024-06-18"
 full_version_info = f"Colette {version_num}, {version_date}\n"

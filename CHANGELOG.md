@@ -2,7 +2,7 @@
 
 ---
 
-## v0.2.0 (WIP)
+## v0.2.0 (2024-06-18)
 
 - **Added:** Configuration support through a TOML file.
 - **Fixed:** Command prompt was not case-insensitive.
