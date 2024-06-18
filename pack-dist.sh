@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-VERNUM="v0.2.0"
+VERNUM=$(cat VERSION)
 
 if [ -d './dist/colette/' ]; then
 	echo "Packing distributable..."
