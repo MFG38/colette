@@ -12,6 +12,7 @@ from datetime import date, timedelta
 import todoHandler as th
 import dateParser as dtp
 import settings
+import configHandler as cnf
 from dueDateUpdater import *
 from textColors import *
 from version import *
@@ -42,8 +43,9 @@ class CommandHandler:
         if len(th.todo) == 0:
             print("There's nothing in your todo list yet!\nStart by adding something with the ADD command.\n")
         else:
-            print(f"{''.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}")
-            print("-" * header_length)
+            print(f"{TextColor.THEADER}{''.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}{TextColor.RESET}")
+            if cnf.get_config_file() and (cnf.get_option('print_header_separator') is None or cnf.get_option('print_header_separator') == True):
+                print("-" * header_length)
 
             print_formatted_entries(th.todo)
             print()

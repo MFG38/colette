@@ -2,6 +2,12 @@
 
 ---
 
+## v0.2.1 (WIP)
+
+- **Added:** Two additional configuration options:
+    - `print_header_separator`: Controls printing the separator line between the table header and task list in the output of the `list` command.
+    - `table_header_color`: Sets the display color(s) for the table header in the output of the `list` command.
+
 ## v0.2.0 (2024-06-18)
 
 - **Added:** Configuration support through a TOML file.

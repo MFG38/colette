@@ -24,6 +24,10 @@ By default, Colette prints due date reminders for tasks with due dates either to
 
 Sets the display color(s) for error messages. See [Color options](#color-options) for available values.
 
+### print_header_separator (default: true)
+
+By default, Colette prints a separator line between the table header and the task list in the output of the **[list](./cmd/list.md)** command. Set this to `false` to disable printing the separator line.
+
 ### prompt_msg_color (default: GREEN)
 
 Sets the display color(s) for the text in interactive prompts. See [Color options](#color-options) for available values.
@@ -39,6 +43,10 @@ When this setting is `true`, Colette will automatically start in debug mode. Col
 ### start_in_test_mode (default: false)
 
 When this setting is `true`, Colette will automatically start in test mode. When test mode is on, any changes made to entries will remain strictly in memory and will not be written to the todo.clt file. Useful when you want to test Colette without messing up your todo.clt file.
+
+### table_header_color (default: NULL)
+
+Sets the display color(s) for the table header in the output of the **[list](./cmd/list.md)** command. See [Color options](#color-options) for available values.
 
 ### task_completed_color (default: GREEN)
 
