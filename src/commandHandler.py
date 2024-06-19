@@ -44,7 +44,7 @@ class CommandHandler:
             print("There's nothing in your todo list yet!\nStart by adding something with the ADD command.\n")
         else:
             print(f"{TextColor.THEADER}{''.join(str(h.ljust(justifiers[header_titles.index(h)])) for h in header_titles)}{TextColor.RESET}")
-            if cnf.get_config_file() and (cnf.get_option('print_header_separator') is None or cnf.get_option('print_header_separator') == True):
+            if not cnf.get_config_file() or (cnf.get_config_file() and (cnf.get_option('print_header_separator') is None or cnf.get_option('print_header_separator') == True)):
                 print("-" * header_length)
 
             print_formatted_entries(th.todo)
