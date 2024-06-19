@@ -272,7 +272,7 @@ class CommandHandler:
             th.save_todo_list()
 
         if settings.debug_mode == True:
-            print(f"{TextColor.DEBUG}{TextColor.RESET}")
+            print(f"{TextColor.DEBUG}Autoremoving expired and completed entries...{TextColor.RESET}")
 
     def edit_entry(index: int):
         '''

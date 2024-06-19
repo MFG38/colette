@@ -130,7 +130,7 @@ class       TextColor
     var     WHITEB
     var     RESET
     var     NULL
-    var     DEFAULT
+    var     THEADER
     var     ERROR
     var     WARNING
     var     DEBUG
