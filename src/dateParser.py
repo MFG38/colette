@@ -8,7 +8,6 @@
 '''
 
 import datetime as dt
-import calendar
 import re
 
 from textColors import *
