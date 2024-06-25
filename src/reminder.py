@@ -9,7 +9,6 @@ from datetime import timedelta
 
 import todoHandler as th
 import dateParser as dtp
-import configHandler as cnf
 from textColors import *
 from dueDateUpdater import *
 
