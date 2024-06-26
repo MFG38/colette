@@ -2,7 +2,7 @@
 
 ---
 
-## v0.2.1 (WIP)
+## v0.2.1 (2024-06-26)
 
 - **Added:** Two additional configuration options:
     - `print_header_separator`: Controls printing the separator line between the table header and task list in the output of the `list` command.
