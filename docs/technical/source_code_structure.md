@@ -94,6 +94,7 @@ var         cmd_no
 Handles printing reminder messages for tasks with approaching due dates.
 
 ```text
+def         get_reminder_threshold
 def         print_reminders
 ```
 

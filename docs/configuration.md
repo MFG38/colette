@@ -36,6 +36,10 @@ Sets the display color(s) for the text in interactive prompts. See [Color option
 
 Sets the display color(s) for task reminder messages. See [Color options](#color-options) for available values.
 
+### reminder_threshold (default: 1)
+
+Sets the number of days at/below which Colette will print a reminder about a task with an approaching due date.
+
 ### start_in_debug_mode (default: false)
 
 When this setting is `true`, Colette will automatically start in debug mode. Colette's debug mode effectively acts like a verbose mode, printing additional messages in the terminal with extra information about what the program is doing internally.

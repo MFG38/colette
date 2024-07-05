@@ -14,6 +14,7 @@ import dateParser as dtp
 import settings
 import configHandler as cnf
 from dueDateUpdater import *
+from reminder import *
 from textColors import *
 from version import *
 from misc import *
@@ -21,14 +22,14 @@ from misc import *
 def print_formatted_entries(src_list: list):
     for entry in src_list:
         print(
-            f"{TextColor.DUESOON}" if entry.deadline <= (dtp.get_current_full_date() + timedelta(days=1)) else "",
+            f"{TextColor.DUESOON}" if entry.deadline <= (dtp.get_current_full_date() + timedelta(days=get_reminder_threshold())) else "",
             f"{TextColor.EXPIRED}" if entry.deadline < dtp.get_current_full_date() else "",
             f"{TextColor.COMPLETED}" if entry.status > 0 else "",
             str(th.todo.index(entry)).ljust(justifiers[0]),
             entry.desc.ljust(justifiers[1]),
             th.parse_task_type(entry.task_type).ljust(justifiers[2]),
             entry.deadline,
-            f"{TextColor.RESET}" if entry.deadline <= (dtp.get_current_full_date() + timedelta(days=1)) or entry.status > 0 else "",
+            f"{TextColor.RESET}" if entry.deadline <= (dtp.get_current_full_date() + timedelta(days=get_reminder_threshold())) or entry.status > 0 else "",
             sep=""
         )
 
