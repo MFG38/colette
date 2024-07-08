@@ -78,7 +78,7 @@ class CommandHandler:
     def sort_list(sort_key: str, desc_order: bool):
         '''
         Sorts the todo list by a given key. The key can be either
-        desc(ription), type or deadline.
+        desc(ription), type, deadline or status.
         '''
         if sort_key == "desc" or sort_key == "description":
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.desc)
