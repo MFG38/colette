@@ -18,7 +18,7 @@ Sets the display color(s) for debug messages. See [Color options](#color-options
 
 ### enable_reminders (default: true)
 
-By default, Colette prints due date reminders for tasks with due dates either today or tomorrow. Add this setting to your configuration file and set it to `false` to disable due date reminders.
+By default, Colette prints due date reminders for tasks with due dates either today or tomorrow (or within a custom threshold if `reminder_threshold` is set). Add this setting to your configuration file and set it to `false` to disable due date reminders.
 
 ### error_msg_color (default: RED)
 

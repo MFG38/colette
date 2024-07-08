@@ -13,7 +13,7 @@ Here's a list of Colette's main features:
 
 ### From the archive (Linux)
 
-1. Download **colette-*.zip** from the Releases section of the GitHub repository.
+1. Download **colette-*.zip** from the [Releases](https://github.com/MFG38/colette/releases) section of the GitHub repository.
 2. Unzip the entire contents of colette-*.zip to a folder of your choice.
 3. Add the following line to your shell configuration file:
 
@@ -39,7 +39,7 @@ For building from source, Colette has the following dependencies:
 * [PyInstaller](https://pyinstaller.org/)
 * [mkdocs](https://www.mkdocs.org/)
 
-Install all of the dependencies as instructed for your operating system before building Colette. You can run the following command to install the dependencies:
+Install all of the dependencies as instructed for your operating system before building Colette. You can run the following command to install PyInstaller and mkdocs:
 
     pip(x) install -r requirements.txt
 

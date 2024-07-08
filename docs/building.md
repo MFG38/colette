@@ -11,7 +11,7 @@ For building from source, Colette has the following dependencies:
 * [PyInstaller](https://pyinstaller.org/)
 * [mkdocs](https://www.mkdocs.org/)
 
-Install all of the dependencies as instructed for your operating system before building Colette. You can run the following command to install the dependencies:
+Install all of the dependencies as instructed for your operating system before building Colette. You can run the following command to install PyInstaller and mkdocs:
 
     pip(x) install -r requirements.txt
 
