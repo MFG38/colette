@@ -6,6 +6,7 @@
 
 - **Added:** Additional configuration options:
     - `reminder_threshold`: Sets the number of days at/below which Colette will print a reminder about a task with an approaching due date.
+- **Fixed:** Tasks with passed due dates being printed under reminders instead of passed due date notifications.
 
 ## v0.2.1 (2024-06-26)
 

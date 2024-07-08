@@ -266,7 +266,7 @@ class CommandHandler:
         expired due dates from the todo list.
         '''
         for entry in th.todo:
-            if entry.task_type == 0 and (parse_date_from_string(str(entry.deadline)) < date.today() or entry.status > 0):
+            if entry.task_type == 0 and (parse_date_from_string(str(entry.deadline)) < dtp.get_current_full_date() or entry.status > 0):
                 th.todo.remove(th.todo[th.todo.index(entry)])
 
         if settings.test_mode == False:
