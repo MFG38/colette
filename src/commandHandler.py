@@ -250,8 +250,6 @@ class CommandHandler:
                         pass
                     else:
                         for i in rem_these:
-                            if settings.debug_mode == True:
-                                print(f"{TextColor.DEBUG}Removing entries at indexes {removable_entries}...{TextColor.RESET}")
                             CommandHandler.remove_entry_by_index(int(i))
             else:
                 print(f"No results returned with the search term(s) '{desc}'.")
@@ -265,15 +263,14 @@ class CommandHandler:
         Removes all fixed-deadline entries marked as completed or with
         expired due dates from the todo list.
         '''
-        for entry in th.todo:
-            if entry.task_type == 0 and (parse_date_from_string(str(entry.deadline)) < dtp.get_current_full_date() or entry.status > 0):
+        for entry in reversed(th.todo):
+            if entry.task_type == 0 and (entry.deadline < dtp.get_current_full_date() or entry.status > 0):
+                if settings.debug_mode == True:
+                    print(f"{TextColor.DEBUG}Removing expired or completed entry at index {th.todo.index(entry)}...{TextColor.RESET}")
                 th.todo.remove(th.todo[th.todo.index(entry)])
 
         if settings.test_mode == False:
             th.save_todo_list()
-
-        if settings.debug_mode == True:
-            print(f"{TextColor.DEBUG}Autoremoving expired and completed entries...{TextColor.RESET}")
 
     def edit_entry(index: int):
         '''
