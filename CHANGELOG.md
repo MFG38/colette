@@ -2,7 +2,7 @@
 
 ---
 
-## v0.2.2 (WIP)
+## v0.2.2 (2024-07-09)
 
 - **Added:** Additional configuration options:
     - `reminder_threshold`: Sets the number of days at/below which Colette will print a reminder about a task with an approaching due date.
