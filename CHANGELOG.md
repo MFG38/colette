@@ -2,6 +2,10 @@
 
 ---
 
+## v0.2.3 (WIP)
+
+- **Fixed:** Reminders for tasks due soon not getting printed if there are tasks due today.
+
 ## v0.2.2 (2024-07-09)
 
 - **Added:** Additional configuration options:

@@ -32,12 +32,12 @@ def print_reminders():
         elif parse_date_from_string(str(entry.deadline)) < dtp.get_current_full_date():
             tasks_with_passed_deadlines.append(entry.desc)
 
-    if len(tasks_due_today) > 0 and len(tasks_due_soon) == 0:
+    if len(tasks_due_today) > 0:
         print(f"{TextColor.REMINDER}REMINDER: You have {len(tasks_due_today)} task(s) due today:{TextColor.RESET}")
         for i in tasks_due_today:
             print(i, sep=", ")
         print()
-    elif len(tasks_due_soon) > 0:
+    if len(tasks_due_soon) > 0:
         print(f"{TextColor.REMINDER}REMINDER: You have {len(tasks_due_soon)} task(s) due in {get_reminder_threshold()} day(s):{TextColor.RESET}")
         for i in tasks_due_soon:
             print(i, sep=", ")
