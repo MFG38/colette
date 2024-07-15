@@ -91,4 +91,4 @@ Colette is licensed under MIT. See the [LICENSE](./LICENSE) file for details.
 ## Credits
 
 This project uses code from the following resources:
-* [console-color](https://gist.github.com/kamito/704813) Gist by kamito
+* [console-color](https://gist.github.com/kamito/704813) Gist by [kamito](https://gist.github.com/kamito)
