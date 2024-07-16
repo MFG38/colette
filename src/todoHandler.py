@@ -9,6 +9,7 @@
 '''
 
 import os
+from textColors import *
 
 tdf_name = 'todo.clt'
 todo = []
@@ -37,8 +38,6 @@ def read_todo_list():
             todo.append(parsed_entry)
 
 def save_todo_list():
-    wd = os.getcwd()
-
     with open(tdf_name, 'w') as tdf:
         for entry in todo:
             tdf.write("{},{},{},{}\n".format(entry.desc, entry.task_type, entry.deadline, entry.status))
