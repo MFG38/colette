@@ -7,7 +7,7 @@
 
 import sys
 import re
-from datetime import date, timedelta
+from datetime import timedelta
 
 import todoHandler as th
 import dateParser as dtp
