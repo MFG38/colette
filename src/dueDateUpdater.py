@@ -29,7 +29,7 @@ def update_deadlines():
             if entry.status > 0:
                 entry.status = 0
         elif entry.task_type == 3 and parse_date_from_string(str(entry.deadline)) < dt.date.today():
-            tdelta = calendar.monthrange(dtp.get_current_year(), dtp.get_current_month())
+            tdelta = 30 #calendar.monthrange(dtp.get_current_year(), dtp.get_current_month())[1]
             if entry.status > 0:
                 entry.status = 0
 
