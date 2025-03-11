@@ -9,7 +9,6 @@ import tomllib
 import os
 
 conf_name = 'colette.toml'
-#parsed_conf = {}
 
 def get_config_file():
     return True if os.path.exists(conf_name) else False
