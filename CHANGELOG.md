@@ -2,7 +2,7 @@
 
 ---
 
-## v0.2.3 (WIP)
+## v0.2.3 (2025-03-15)
 
 - **Fixed:** Reminders for tasks due soon not getting printed if there are tasks due today.
 - **Fixed:** Due dates for monthly tasks not getting updated properly.
