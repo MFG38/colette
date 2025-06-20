@@ -2,6 +2,10 @@
 
 ---
 
+## v0.3.0 (WIP)
+
+- **Changed:** The command prompt now accepts only single-word commands.
+
 ## v0.2.3 (2025-03-15)
 
 - **Fixed:** Reminders for tasks due soon not getting printed if there are tasks due today.

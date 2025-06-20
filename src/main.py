@@ -29,9 +29,9 @@ if not get_config_file() or (get_config_file() and (get_option('enable_reminders
     print_reminders()
 
 while True:
-    cmd = input("colette_cmd> ").split(" ")
+    cmd = input("colette_cmd> ")
 
-    match cmd[0].lower():
+    match cmd.lower():
         case "help":
             ch.print_help()
 
@@ -89,4 +89,4 @@ while True:
             ch.exit_colette()
 
         case _:
-            print(f"{TextColor.ERROR}{cmd[0]} is not a recognized command.{TextColor.RESET}")
+            print(f"{TextColor.ERROR}{cmd} is not a recognized command.{TextColor.RESET}")
