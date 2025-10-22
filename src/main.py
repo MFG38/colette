@@ -49,7 +49,7 @@ while True:
 
         case "sort":
             ch.sort_list(
-                input(f"{TextColor.PROMPT}Sort by desc(ription), type, deadline or status? {TextColor.RESET}"),
+                input(f"{TextColor.PROMPT}Sort by desc(ription), t(ype), deadline/dl or s(tatus)? {TextColor.RESET}"),
                 True if input(f"{TextColor.PROMPT}Sort in descending order? [y(es)/N(O)] {TextColor.RESET}") in cmd_yes else False
             )
 

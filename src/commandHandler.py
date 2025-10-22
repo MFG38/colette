@@ -13,7 +13,6 @@ import todoHandler as th
 import dateParser as dtp
 import settings
 import configHandler as cnf
-from dueDateUpdater import *
 from reminder import *
 from textColors import *
 from version import *
@@ -78,15 +77,15 @@ class CommandHandler:
     def sort_list(sort_key: str, desc_order: bool):
         '''
         Sorts the todo list by a given key. The key can be either
-        desc(ription), type, deadline or status.
+        desc(ription), t(ype), deadline/dl or s(tatus).
         '''
         if sort_key == "desc" or sort_key == "description":
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.desc)
-        elif sort_key == "type":
+        elif sort_key == "type" or sort_key == "t":
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.task_type)
-        elif sort_key == "deadline":
+        elif sort_key == "deadline" or sort_key == "dl":
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.deadline)
-        elif sort_key == "status":
+        elif sort_key == "status" or sort_key == "s":
             th.todo.sort(reverse=desc_order, key=lambda TodoItem: TodoItem.status)
         else:
             print(f"{TextColor.ERROR}{sort_key} is not a valid sort key!{TextColor.RESET}")

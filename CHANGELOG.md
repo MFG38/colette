@@ -5,7 +5,8 @@
 ## v0.3.0 (WIP)
 
 - **Changed:** The command prompt now accepts only single-word commands.
-- **Added:** Support for loading `colette.toml` from `~/.config` if found.
+- **Added:** Support for loading `colette.toml` from `~/.config/` if found.
+- **Added:** Shorthand aliases for sort keys (`t` for type, `dl` for deadline and `s` for status).
 
 ## v0.2.3 (2025-03-15)
 
