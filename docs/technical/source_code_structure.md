@@ -34,9 +34,10 @@ class       CommandHandler
 
 ### configHandler.py
 
-Handles reading information from a configuration file if one is found in the working directory on launch.
+Handles reading information from a configuration file if one is found in the working directory or `~/.config/` on launch.
 
 ```text
+var         conf_path
 var         conf_name
 def         get_config_file
 def         read_config_file

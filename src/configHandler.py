@@ -2,7 +2,8 @@
     configHandler.py
 
     Handles reading information from a configuration file
-    if one is found in the working directory on launch.
+    if one is found in the working directory or ~/.config/
+    on launch.
 '''
 
 import tomllib
