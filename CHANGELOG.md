@@ -2,7 +2,7 @@
 
 ---
 
-## v0.3.0 (WIP)
+## v0.3.0 (2025-10-23)
 
 - **Changed:** The command prompt now accepts only single-word commands.
 - **Added:** Support for loading `colette.toml` from `~/.config/` if found.
