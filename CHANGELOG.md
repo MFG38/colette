@@ -2,6 +2,10 @@
 
 ---
 
+## v0.3.1 (????-??-??)
+
+- **Changed:** Changes to the todo list no longer get written to `todo.clt` if Colette starts in test mode.
+
 ## v0.3.0 (2025-10-23)
 
 - **Changed:** The command prompt now accepts only single-word commands.

@@ -17,7 +17,6 @@ read_todo_list()
 get_config_file()
 read_config_file()
 update_deadlines()
-save_todo_list()
 
 if get_config_file() and get_option('start_in_debug_mode') == True:
     ch.toggle_debug_mode()
@@ -27,6 +26,8 @@ if get_config_file() and get_option('autoremove_old_entries') == True:
     ch.remove_completed_and_expired_entries()
 if not get_config_file() or (get_config_file() and (get_option('enable_reminders') is None or get_option('enable_reminders') == True)):
     print_reminders()
+if not get_config_file() or (get_config_file() and (get_option('start_in_test_mode') is None or get_option('start_in_test_mode') == False)):
+    save_todo_list()
 
 while True:
     cmd = input("colette_cmd> ")
