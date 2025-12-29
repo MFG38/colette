@@ -17,7 +17,7 @@ def get_config_file():
 
 def read_config_file():
     if get_config_file() == True:
-        if os.path.exists(conf_path):
+        if os.path.exists(conf_path + conf_name):
             with open(conf_path + conf_name, 'rb') as conf:
                 parsed_conf = tomllib.load(conf)
         else:
