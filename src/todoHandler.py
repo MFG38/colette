@@ -21,13 +21,8 @@ class TodoItem:
         self.deadline = deadline
         self.status = status
 
-    def __getitem__(self, desc, task_type, deadline, status):
-        return self.desc, self.task_type, self.deadline, self.status
-
 def get_todo_list():
-    if os.path.exists(tdf_name):
-        pass
-    else:
+    if not os.path.exists(tdf_name):
         open(tdf_name, 'x')
 
 def read_todo_list():

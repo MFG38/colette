@@ -20,7 +20,7 @@ def read_config_file():
         if os.path.exists(conf_path + conf_name):
             with open(conf_path + conf_name, 'rb') as conf:
                 parsed_conf = tomllib.load(conf)
-        else:
+        elif os.path.exists(conf_name):
             with open(conf_name, 'rb') as conf:
                 parsed_conf = tomllib.load(conf)
 
