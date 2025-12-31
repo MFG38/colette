@@ -11,6 +11,7 @@ from dueDateUpdater import *
 from reminder import *
 from misc import *
 from configHandler import *
+from settings import *
 
 get_todo_list()
 read_todo_list()
@@ -26,7 +27,8 @@ if get_config_file() and get_option('autoremove_old_entries') == True:
     ch.remove_completed_and_expired_entries()
 if not get_config_file() or (get_config_file() and (get_option('enable_reminders') is None or get_option('enable_reminders') == True)):
     print_reminders()
-if not get_config_file() or (get_config_file() and (get_option('start_in_test_mode') is None or get_option('start_in_test_mode') == False)):
+
+if test_mode == False:
     save_todo_list()
 
 while True:
