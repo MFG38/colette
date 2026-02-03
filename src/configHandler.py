@@ -16,7 +16,7 @@ def get_config_file():
     return True if os.path.exists(conf_name) or os.path.exists(conf_path + conf_name) else False
 
 def read_config_file():
-    if get_config_file() == True:
+    if get_config_file():
         if os.path.exists(conf_path + conf_name):
             with open(conf_path + conf_name, 'rb') as conf:
                 parsed_conf = tomllib.load(conf)
@@ -26,8 +26,10 @@ def read_config_file():
 
         return parsed_conf
 
+ret_conf = read_config_file()
+
 def get_option(key: str):
-    return read_config_file().get(key)
+    return ret_conf.get(key)
 
 if __name__ == "__main__":
     print(get_config_file())
