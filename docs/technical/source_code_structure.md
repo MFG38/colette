@@ -39,6 +39,7 @@ Handles reading information from a configuration file if one is found in the wor
 ```text
 var         conf_path
 var         conf_name
+var         ret_conf
 def         get_config_file
 def         read_config_file
 def         get_option

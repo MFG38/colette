@@ -5,8 +5,8 @@
 ## v0.3.1 (????-??-??)
 
 - **Changed:** Changes to the todo list no longer get written to `todo.clt` if Colette starts in test mode.
+- **Changed:** `colette.toml` now gets cached for slightly better performance on `get_option` checks.
 - **Fixed:** Potential crash if `~/.config/` is found but contains no `colette.toml` file.
-- Miscellaneous performance optimizations.
 
 ## v0.3.0 (2025-10-23)
 
