@@ -31,6 +31,9 @@ if not get_config_file() or (get_config_file() and (get_option('enable_reminders
 if test_mode == False:
     save_todo_list()
 
+if get_config_file() and get_option('print_list_on_start') == True:
+    ch.print_list()
+
 while True:
     cmd = input("colette_cmd> ")
 

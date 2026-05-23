@@ -28,6 +28,10 @@ Sets the display color(s) for error messages. See [Color options](#color-options
 
 By default, Colette prints a separator line between the table header and the task list in the output of the **[list](./cmd/list.md)** command. Set this to `false` to disable printing the separator line.
 
+### print_list_on_start (default: false)
+
+When this setting is `true`, Colette will automatically print the todo list on startup.
+
 ### prompt_msg_color (default: GREEN)
 
 Sets the display color(s) for the text in interactive prompts. See [Color options](#color-options) for available values.

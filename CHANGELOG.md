@@ -4,6 +4,8 @@
 
 ## v0.3.1 (????-??-??)
 
+- **Added:** An additonal configuration option:
+    - `print_list_on_start`: Prints the todo list on startup when set to true.
 - **Changed:** Changes to the todo list no longer get written to `todo.clt` if Colette starts in test mode.
 - **Changed:** `colette.toml` now gets cached for slightly better performance on `get_option` checks.
 - **Fixed:** Potential crash if `~/.config/` is found but contains no `colette.toml` file.
