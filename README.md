@@ -80,8 +80,8 @@ You can also run Colette without building it by running the **main.py** file fro
 
 |Terminal                   |Runnable?      |Supported? |Known issues           |
 |---------------------------|---------------|-----------|-----------------------|
-|**PowerShell**             |Yes            |No         |Text color codes render as plain text on Windows. Setting text colors to NULL in colette.toml is a supported workaround.     |
-|**Windows Command Prompt** |Yes            |No         |Text color codes render as plain text. Setting text colors to NULL in colette.toml is a supported workaround.     |
+|**PowerShell**             |Yes            |No         |Text color codes render as plain text on Windows. Setting text colors to `NULL` in colette.toml is a supported workaround.     |
+|**Windows Command Prompt** |Yes            |No         |Text color codes render as plain text. Setting text colors to `NULL` in colette.toml is a supported workaround.     |
 |**xterm**                  |Yes            |Yes        |None                   |
 
 ## License
@@ -89,6 +89,8 @@ You can also run Colette without building it by running the **main.py** file fro
 Colette is licensed under MIT. See the [LICENSE](./LICENSE) file for details.
 
 ## Credits
+
+This project is developed by Santtu "MFG38" Pesonen.
 
 This project uses code from the following resources:
 * [console-color](https://gist.github.com/kamito/704813) Gist by [kamito](https://gist.github.com/kamito)
