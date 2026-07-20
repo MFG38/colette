@@ -9,6 +9,8 @@
 - **Changed:** Changes to the todo list no longer get written to `todo.clt` if Colette starts in test mode.
 - **Changed:** `colette.toml` now gets cached for slightly better performance on `get_option` checks.
 - **Fixed:** Potential crash if `~/.config/` is found but contains no `colette.toml` file.
+- **Fixed:** Due dates now update to the next due date at once instead of needing several boots to update to it.
+- **Fixed:** Due dates for monthly tasks now update following proper calendar month logic.
 
 ## v0.3.0 (2025-10-23)
 

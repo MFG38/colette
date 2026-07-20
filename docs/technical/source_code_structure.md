@@ -70,6 +70,7 @@ Handles updating the due dates periodically for tasks of a non-fixed type. The `
 
 ```text
 def         parse_date_from_string
+def         add_month
 def         update_deadlines
 ```
 
@@ -222,4 +223,4 @@ Shell script used for making a copy of CHANGELOG.md in the **docs/** directory. 
 
 ### VERSION
 
-Text file containing Colette's version number. pack-dist.sh reads the information from this file into a variable and uses it to package Colette with the proper version number.
+Text file containing Colette's version number. pack-dist.sh reads the information from this file into a variable and uses it to package Colette with the proper version number in the name of the .zip file.
