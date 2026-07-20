@@ -37,7 +37,7 @@ def update_deadlines():
                 due_date += dt.timedelta(days=1)
         elif entry.task_type == 2:
             while due_date < today:
-                due_date += dt.timedelta(days=1)
+                due_date += dt.timedelta(days=7)
         elif entry.task_type == 3:
             target = due_date.day
 
