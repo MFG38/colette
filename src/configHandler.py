@@ -29,7 +29,7 @@ def read_config_file():
 ret_conf = read_config_file()
 
 def get_option(key: str):
-    return ret_conf.get(key)
+    return ret_conf.get(key) if get_config_file() else None
 
 if __name__ == "__main__":
     print(get_config_file())

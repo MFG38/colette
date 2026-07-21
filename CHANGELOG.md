@@ -2,7 +2,7 @@
 
 ---
 
-## v0.4.0 (????-??-??)
+## v0.4.0 (2026-07-21)
 
 - **Added:** An additonal configuration option:
     - `print_list_on_start`: Prints the todo list on startup when set to true.
