@@ -30,7 +30,7 @@ def update_deadlines():
     today = dt.date.today()
 
     for entry in th.todo:
-        due_date, old_due_date = parse_date_from_string(entry.deadline)
+        due_date = old_due_date = parse_date_from_string(entry.deadline)
 
         if entry.task_type == 1:
             while due_date < today:
