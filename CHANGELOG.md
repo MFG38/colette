@@ -2,6 +2,11 @@
 
 ---
 
+## v0.4.1 (????-??-??)
+
+- **Changed:** Minor error message change in `add_entry` function.
+- **Fixed:** `edit_entry` function was missing validation for description length.
+
 ## v0.4.0 (2026-07-21)
 
 - **Added:** An additional configuration option:

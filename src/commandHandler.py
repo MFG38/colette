@@ -147,7 +147,7 @@ class CommandHandler:
             print(f"{TextColor.ERROR}Description can't be an empty string!{TextColor.RESET}")
             return
         elif len(desc) > 60:
-            print(f"{TextColor.ERROR}Length of description exceeds character limit!{TextColor.RESET}")
+            print(f"{TextColor.ERROR}Description length exceeds character limit!{TextColor.RESET}")
             return
 
         parsable_type = str(task_type)
@@ -288,6 +288,9 @@ class CommandHandler:
         new_desc = input(f"{TextColor.PROMPT}Enter new description or leave blank to skip. {TextColor.RESET}")
 
         if new_desc == "":
+            pass
+        elif len(new_desc) > 60:
+            print(f"{TextColor.ERROR}Description length exceeds character limit!{TextColor.RESET}")
             pass
         else:
             th.todo[index].desc = new_desc
