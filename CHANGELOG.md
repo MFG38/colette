@@ -4,7 +4,7 @@
 
 ## v0.4.0 (2026-07-21)
 
-- **Added:** An additonal configuration option:
+- **Added:** An additional configuration option:
     - `print_list_on_start`: Prints the todo list on startup when set to true.
 - **Changed:** Changes to the todo list no longer get written to `todo.clt` if Colette starts in test mode.
 - **Changed:** `colette.toml` now gets cached for slightly better performance on `get_option` checks.

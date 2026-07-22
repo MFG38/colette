@@ -25,9 +25,18 @@ Once you have performed the steps above, you can launch Colette by simply typing
 
 Refer to the instructions in the **[Building Colette](#building-colette)** section.
 
-## Usage
+## Example usage
 
-Launch Colette and type `help` for a list of commands supported by Colette.
+```text
+colette_cmd> add
+Description of the task: send report
+Type of task ([f]ixed, [d]aily, [w]eekly, [m]onthly): f
+Deadline for the task: tuesday
+
+colette_cmd> list
+INDEX   TASK DESCRIPTION                                                TYPE    DUE DATE
+0       send report                                                     fixed   2026-07-28
+```
 
 ## Building Colette
 
