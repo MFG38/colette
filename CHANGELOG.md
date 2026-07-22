@@ -6,6 +6,7 @@
 
 - **Changed:** Minor error message change in `add_entry` function.
 - **Fixed:** `edit_entry` function was missing validation for description length.
+- **Fixed:** Status for recurring tasks potentially getting reset when it shouldn't.
 
 ## v0.4.0 (2026-07-21)
 

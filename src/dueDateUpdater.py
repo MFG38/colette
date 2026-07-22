@@ -30,7 +30,7 @@ def update_deadlines():
     today = dt.date.today()
 
     for entry in th.todo:
-        due_date = parse_date_from_string(entry.deadline)
+        due_date, old_due_date = parse_date_from_string(entry.deadline)
 
         if entry.task_type == 1:
             while due_date < today:
@@ -44,7 +44,7 @@ def update_deadlines():
             while due_date < today:
                 due_date = add_month(due_date, target)
 
-        if entry.status > 0:
+        if due_date > old_due_date and entry.task_type != 0:
             entry.status = 0
 
         entry.deadline = due_date
