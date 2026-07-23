@@ -13,15 +13,15 @@ conf_path = os.path.expanduser('~/.config/')
 conf_name = 'colette.toml'
 
 def get_config_file():
-    return True if os.path.exists(conf_name) or os.path.exists(conf_path + conf_name) else False
+    return True if os.path.exists(conf_name) or os.path.exists(os.path.join(conf_path, conf_name)) else False
 
 def read_config_file():
     if get_config_file():
-        if os.path.exists(conf_path + conf_name):
-            with open(conf_path + conf_name, 'rb') as conf:
-                parsed_conf = tomllib.load(conf)
-        elif os.path.exists(conf_name):
+        if os.path.exists(conf_name):
             with open(conf_name, 'rb') as conf:
+                parsed_conf = tomllib.load(conf)
+        elif os.path.exists(os.path.join(conf_path, conf_name)):
+            with open(os.path.join(conf_path, conf_name), 'rb') as conf:
                 parsed_conf = tomllib.load(conf)
 
         return parsed_conf

@@ -5,6 +5,7 @@
 ## v0.4.1 (????-??-??)
 
 - **Changed:** Minor error message change in `add_entry` function.
+- **Changed:** Prefer config found in working directory over one in `~/.config/` if both are found.
 - **Fixed:** `edit_entry` function was missing validation for description length.
 - **Fixed:** Status for recurring tasks potentially getting reset when it shouldn't.
 
