@@ -26,7 +26,7 @@ elif [ $BUILDWITHCMD == 'n' ]; then
 	echo "Application build skipped."
 fi
 
-read -p "Rebuild documentation? [y/n]" RBDOCS
+read -p "Rebuild documentation? [y/n] " RBDOCS
 
 if [ $RBDOCS == 'y' ]; then
 	sh update-docs-changelog.sh
