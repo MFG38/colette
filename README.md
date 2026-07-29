@@ -38,6 +38,8 @@ INDEX   TASK DESCRIPTION                                                TYPE    
 0       send report                                                     fixed   2026-07-28
 ```
 
+Type `help` for a full list of available commands.
+
 ## Building Colette
 
 ### Dependencies
