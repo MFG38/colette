@@ -79,7 +79,7 @@ while True:
             try:
                 i = int(i)
                 ch.remove_entry_by_index(i)
-            except (ValueError, Exception):
+            except ValueError:
                 ch.remove_entry_by_description(i)
 
         case "autorem" | "autoremove" | "arem" | "aremove":
