@@ -29,8 +29,9 @@ class TextColor:
     WHITEB      = "\033[47m"
 
     RESET       = "\033[0m"
-
     NULL        = ""
+
+    # TODO: Replace the eval()s here with a safer parsing method. Thankfully I have an idea.
     THEADER     = eval(f"{get_option('table_header_color')}") if get_config_file() and get_option('table_header_color') is not None else NULL
     ERROR       = eval(f"{get_option('error_msg_color')}") if get_config_file() and get_option('error_msg_color') is not None else RED
     WARNING     = eval(f"{get_option('warning_msg_color')}") if get_config_file() and get_option('warning_msg_color') is not None else YELLOW

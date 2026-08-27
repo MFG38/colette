@@ -8,6 +8,7 @@
 - **Changed:** Prefer config found in working directory over one in `~/.config/` if both are found.
 - **Fixed:** `edit_entry` function was missing validation for description length.
 - **Fixed:** Status for recurring tasks potentially getting reset when it shouldn't.
+- Miscellaneous code tweaks.
 
 ## v0.4.0 (2026-07-21)
 
