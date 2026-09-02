@@ -31,16 +31,29 @@ class TextColor:
     RESET       = "\033[0m"
     NULL        = ""
 
-    # TODO: Replace the eval()s here with a safer parsing method. Thankfully I have an idea.
-    THEADER     = eval(f"{get_option('table_header_color')}") if get_config_file() and get_option('table_header_color') is not None else NULL
-    ERROR       = eval(f"{get_option('error_msg_color')}") if get_config_file() and get_option('error_msg_color') is not None else RED
-    WARNING     = eval(f"{get_option('warning_msg_color')}") if get_config_file() and get_option('warning_msg_color') is not None else YELLOW
-    DEBUG       = eval(f"{get_option('debug_msg_color')}") if get_config_file() and get_option('debug_msg_color') is not None else CYAN
-    PROMPT      = eval(f"{get_option('prompt_msg_color')}") if get_config_file() and get_option('prompt_msg_color') is not None else GREEN
-    COMPLETED   = eval(f"{get_option('task_completed_color')}") if get_config_file() and get_option('task_completed_color') is not None else GREEN
-    DUESOON     = eval(f"{get_option('task_due_soon_color')}") if get_config_file() and get_option('task_due_soon_color') is not None else BLACK + REDB
-    EXPIRED     = eval(f"{get_option('task_expired_color')}") if get_config_file() and get_option('task_expired_color') is not None else BLACK + PURPLEB
-    REMINDER    = eval(f"{get_option('reminder_msg_color')}") if get_config_file() and get_option('reminder_msg_color') is not None else YELLOW
+def parse_color(value: str) -> str:
+    colors = []
+
+    for color in value.split("+"):
+        name = color.strip().upper()
+
+        try:
+            colors.append(getattr(TextColor, name))
+        except AttributeError:
+            raise ValueError(f"Unknown text color: {name!r}")
+
+    return "".join(colors)
+
+TextColor.THEADER   = parse_color(get_option('table_header_color')) if get_config_file() and get_option('table_header_color') is not None else TextColor.NULL
+TextColor.ERROR     = parse_color(get_option('error_msg_color')) if get_config_file() and get_option('error_msg_color') is not None else TextColor.RED
+TextColor.WARNING   = parse_color(get_option('warning_msg_color')) if get_config_file() and get_option('warning_msg_color') is not None else TextColor.YELLOW
+TextColor.DEBUG     = parse_color(get_option('debug_msg_color')) if get_config_file() and get_option('debug_msg_color') is not None else TextColor.CYAN
+TextColor.PROMPT    = parse_color(get_option('prompt_msg_color')) if get_config_file() and get_option('prompt_msg_color') is not None else TextColor.GREEN
+TextColor.COMPLETED = parse_color(get_option('task_completed_color')) if get_config_file() and get_option('task_completed_color') is not None else TextColor.GREEN
+TextColor.DUESOON   = parse_color(get_option('task_due_soon_color')) if get_config_file() and get_option('task_due_soon_color') is not None else TextColor.BLACK + TextColor.REDB
+TextColor.EXPIRED   = parse_color(get_option('task_expired_color')) if get_config_file() and get_option('task_expired_color') is not None else TextColor.BLACK + TextColor.PURPLEB
+TextColor.REMINDER  = parse_color(get_option('reminder_msg_color')) if get_config_file() and get_option('reminder_msg_color') is not None else TextColor.YELLOW
 
 if __name__ == "__main__":
-    print("Colors ok")
+    print(f"{TextColor.THEADER}does this work{TextColor.RESET}")
+    print(f"{TextColor.DEBUG}does this work{TextColor.RESET}")

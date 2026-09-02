@@ -134,15 +134,16 @@ class       TextColor
     var     WHITEB
     var     RESET
     var     NULL
-    var     THEADER
-    var     ERROR
-    var     WARNING
-    var     DEBUG
-    var     PROMPT
-    var     COMPLETED
-    var     DUESOON
-    var     EXPIRED
-    var     REMINDER
+def         parse_color
+var         THEADER
+var         ERROR
+var         WARNING
+var         DEBUG
+var         PROMPT
+var         COMPLETED
+var         DUESOON
+var         EXPIRED
+var         REMINDER
 ```
 
 ### todoHandler.py
