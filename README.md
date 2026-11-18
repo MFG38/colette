@@ -6,6 +6,7 @@ Here's a list of Colette's main features:
 
 - **Pure Python** - Colette is written in pure Python with no dependencies other than Python itself.
 - **Simple but powerful list management** - Add, remove and edit entries, mark them as completed, sort your todo list etc.
+- **Deadlines and task recurrence** - Stay on top of your tasks with deadlines and make repeatable tasks recurring. Daily, weekly and monthly recurrence are currently supported.
 - **Easy storage** - Colette stores the todo list into a human-readable file that can be modified with a text editor if desired.
 - **Configurability** - Colette is configurable with a TOML file.
 
