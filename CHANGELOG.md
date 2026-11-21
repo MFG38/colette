@@ -2,6 +2,10 @@
 
 ---
 
+## v0.5.0 (????-??-??)
+
+- **Added:** New command: `undo` to mark previously completed tasks as incomplete.
+
 ## v0.4.1 (2026-09-04)
 
 - **Changed:** Minor error message change in `add_entry` function.

@@ -74,6 +74,9 @@ while True:
         case "complete" | "done":
             ch.mark_task_as_completed(int(input(f"{TextColor.PROMPT}Index of entry to mark as completed: {TextColor.RESET}")))
 
+        case "undo":
+            ch.undo_task_completion(int(input(f"{TextColor.PROMPT}Index of entry to undo: {TextColor.RESET}")))
+
         case "rem" | "remove":
             i = input(f"{TextColor.PROMPT}Index or description of entry to remove: {TextColor.RESET}")
             try:

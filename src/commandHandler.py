@@ -197,6 +197,26 @@ class CommandHandler:
                 if settings.debug_mode == True:
                     print(f"{TextColor.DEBUG}Marked task completed at index {index}.{TextColor.RESET}")
 
+    def undo_task_completion(index: int):
+        '''
+        Marks a previously completed task as incomplete.
+        '''
+        if index not in range(0, len(th.todo)):
+            print(f"{TextColor.ERROR}Nothing found at index {index} - probably out of bounds.{TextColor.RESET}")
+            return
+        else:
+            if th.todo[index].status == 0:
+                print(f"{TextColor.WARNING}That task is already marked as incomplete!{TextColor.RESET}")
+                return
+            else:
+                th.todo[index].status = 0
+
+                if settings.test_mode == False:
+                    th.save_todo_list()
+
+                if settings.debug_mode == True:
+                    print(f"{TextColor.DEBUG}Marked task incomplete at index {index}.{TextColor.RESET}")
+
     def remove_entry_by_index(index: int):
         '''
         Removes an entry from the todo list by its index.
@@ -345,6 +365,8 @@ class CommandHandler:
             add - Adds an entry to the todo list.
 
             complete/done - Marks a task as completed.
+
+            undo - Marks a completed task as incomplete.
 
             rem[ove] - Removes an entry from the todo list.
 

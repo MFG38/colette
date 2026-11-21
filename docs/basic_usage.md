@@ -29,4 +29,5 @@ Below is a list of the commands that Colette supports. See each command's dedica
 - [search](./cmd/search.md)
 - [sort](./cmd/sort.md)
 - [test](./cmd/test.md)
+- [undo](./cmd/undo.md)
 - [ver(sion)](./cmd/version.md)
