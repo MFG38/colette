@@ -21,6 +21,7 @@ class       CommandHandler
     def     clear_list
     def     add_entry
     def     mark_task_as_completed
+    def     undo_task_completion
     def     remove_entry_by_index
     def     remove_entry_by_description
     def     remove_completed_and_expired_entries
